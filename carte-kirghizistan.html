@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carte du parcours — Kirghizistan, septembre 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  html, body { height: 100%; margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+  #map { height: 100%; width: 100%; background: #EDEBE6; }
+  .topbar {
+    position: absolute; top: 10px; left: 54px; right: 10px; z-index: 1000;
+    background: rgba(255,255,255,.94); border-radius: 8px; padding: .5rem .9rem;
+    box-shadow: 0 1px 6px rgba(0,0,0,.25); max-width: 44rem;
+  }
+  .topbar h1 { font-size: 1rem; margin: 0 0 .15rem; }
+  .topbar p { margin: 0; font-size: .8rem; color: #444; }
+  .sw { display: inline-block; width: 1.5rem; height: 0; border-radius: 2px; vertical-align: middle; margin-right: .25rem; }
+  .sw.road { border-top: 4px solid #1E56B0; }
+  .sw.trek { border-top: 4px solid #1F7A33; }
+  .daybadge {
+    background: #B5762F; color: #fff; border-radius: 50%;
+    width: 26px; height: 26px; line-height: 26px; text-align: center;
+    font-size: 12px; font-weight: 700; border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.45); box-sizing: border-box;
+  }
+  .daybadge.city { background: #14766F; }
+  .plabel {
+    font-size: 14px; font-weight: 700; color: #22302C; white-space: nowrap;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 6px #fff, 0 0 10px #fff;
+  }
+  .plabel small { font-weight: 600; font-size: 11px; color: #6B5A3E; display: block; line-height: 1.1; }
+  .actbadge {
+    color: #8A3FA0; font-size: 17px; line-height: 1;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 5px #fff;
+  }
+  .leaflet-popup-content { font-size: .85rem; line-height: 1.4; }
+  .leaflet-popup-content b { color: #14766F; }
+  #offline { display: none; padding: 2rem; font-size: 1rem; color: #333; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="topbar">
+  <h1>Kirghizistan — la boucle de A à Z (4 → 25 septembre 2026)</h1>
+  <p><span class="sw road"></span>véhicule (marshrutka, taxi, 4x4) &nbsp; <span class="sw trek"></span>randonnée &nbsp;·&nbsp; pastilles = nuits J1 → J21 &nbsp;·&nbsp; <span style="color:#8A3FA0;font-weight:700">★</span> = activités (cliquer pour le détail). Basculer sur le calque « Topo détaillée » (en haut à droite) pour les sentiers et courbes de niveau. Tracés approchés — en trek, naviguer au GPX (fiche KG Nomad) dans Organic Maps.</p>
+</div>
+<div id="offline">Cette carte a besoin d'internet (fond de carte). Recharge la page une fois connecté.</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+if (typeof L === 'undefined') {
+  document.getElementById('map').style.display = 'none';
+  document.getElementById('offline').style.display = 'block';
+} else {
+  const map = L.map('map');
+
+  const relief = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 13,
+    attribution: 'Relief : Esri, USGS | Tracé : itinéraire sept. 2026'
+  }).addTo(map);
+  const topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 16,
+    attribution: 'Fond : © OpenStreetMap, SRTM | Style : © OpenTopoMap (CC-BY-SA)'
+  });
+  L.control.layers({ 'Relief épuré': relief, 'Topo détaillée (sentiers)': topo }).addTo(map);
+
+  // Lacs dessinés (le fond relief n'affiche pas l'eau)
+  const LAKE = { color: '#5E9FB0', weight: 1.5, fillColor: '#A8D2DE', fillOpacity: .9 };
+  L.polygon([[42.62,76.15],[42.75,76.60],[42.78,77.20],[42.72,77.80],[42.65,78.15],[42.55,78.30],[42.42,78.20],[42.30,77.80],[42.20,77.40],[42.13,77.00],[42.13,76.60],[42.25,76.25],[42.45,76.12]], LAKE).addTo(map);
+  L.polygon([[41.90,75.05],[41.88,75.22],[41.83,75.28],[41.78,75.22],[41.77,75.05],[41.82,74.98]], LAKE).addTo(map);
+
+  // ——— Tracés : liseré blanc dessous + couleur dessus ———
+  const CASE = { color: '#ffffff', weight: 10, opacity: .85 };
+  const ROAD = { color: '#1E56B0', weight: 5, opacity: 1, dashArray: '10 8' };
+  const TREK = { color: '#1F7A33', weight: 5.5, opacity: 1 };
+  function drawAll(segs, style, grp) {
+    segs.forEach(s => L.polyline(s.pts, CASE).addTo(grp));
+    segs.forEach(s => L.polyline(s.pts, style).bindPopup(s.name).addTo(grp));
+  }
+
+  const roads = [
+    { name: 'J2 · Marshrutka Bichkek → gorge de Boom (arrêt Konorchek)', pts: [[42.8746,74.5698],[42.845,74.95],[42.833,75.285],[42.78,75.69],[42.70,75.79],[42.63,75.83],[42.548,75.870]] },
+    { name: 'J2 · Stop/marshrutka Konorchek → Balykchy → Cholpon-Ata', pts: [[42.548,75.870],[42.50,75.92],[42.463,76.02],[42.460,76.185],[42.58,76.42],[42.65,76.65],[42.649,77.083]] },
+    { name: 'J3 · Marshrutka Cholpon-Ata → Karakol (rive nord)', pts: [[42.649,77.083],[42.68,77.35],[42.71,77.62],[42.72,77.90],[42.73,78.20],[42.72,78.36],[42.60,78.39],[42.490,78.394]] },
+    { name: 'J4 · Marshrutka 350 Karakol → Ak-Suu (départ du trek)', pts: [[42.490,78.394],[42.498,78.528]] },
+    { name: 'J9 · Taxi Jeti-Oguz → canyon Skazka → Bokonbaevo (rive sud)', pts: [[42.437,78.225],[42.46,78.20],[42.30,77.88],[42.18,77.55],[42.161,77.348],[42.15,77.18],[42.121,76.988]] },
+    { name: 'J10 · Marshrutka/taxi Bokonbaevo → Balykchy → Kochkor', pts: [[42.121,76.988],[42.17,76.60],[42.31,76.33],[42.460,76.185],[42.40,76.00],[42.32,75.93],[42.216,75.755]] },
+    { name: 'J11 · Taxi/marshrutka Kochkor → Kyzart (départ trek Song-Kul)', pts: [[42.216,75.755],[42.15,75.55],[42.10,75.40],[42.083,75.295]] },
+    { name: 'J13 · 4x4 Song-Kul → col Moldo-Ashuu (33 lacets) → Naryn', pts: [[41.870,75.180],[41.78,75.12],[41.70,75.20],[41.665,75.253],[41.60,75.30],[41.50,75.42],[41.43,75.62],[41.428,75.991]] },
+    { name: 'J14 · Charter 4x4 (1/3) Naryn → At-Bashy → Tash Rabat', pts: [[41.428,75.991],[41.30,75.90],[41.170,75.790],[41.05,75.60],[40.95,75.45],[40.90,75.30],[40.823,75.284]] },
+    { name: 'J15 · Charter 4x4 (2/3) Tash Rabat → vallée de Kök-Kyya (checkpoint permis)', pts: [[40.823,75.284],[40.90,75.30],[40.95,75.45],[41.00,75.70],[40.95,75.95],[40.85,76.10],[40.70,76.20],[40.56,76.28]] },
+    { name: 'J16 · Charter 4x4 (3/3) Kök-Kyya → Ak-Tal → Baetov → Kazarman (contourne Naryn)', pts: [[40.56,76.28],[40.70,76.20],[40.90,76.05],[41.05,75.85],[41.12,75.60],[41.15,75.30],[41.25,75.10],[41.42,75.12],[41.27,74.93],[41.30,74.60],[41.35,74.30],[41.404,74.044]] },
+    { name: 'J17 · Taxis partagés Kazarman → col Kaldamo → Jalal-Abad → Arslanbob', pts: [[41.404,74.044],[41.30,73.90],[41.24,73.85],[41.10,73.60],[41.00,73.30],[40.94,73.00],[41.03,72.75],[41.20,72.85],[41.339,72.939]] },
+    { name: 'J20 · Marshrutka + taxi Arslanbob → Bazar-Korgon → Uzgen → Och', pts: [[41.339,72.939],[41.20,72.85],[41.03,72.75],[40.90,72.90],[40.77,73.30],[40.60,73.00],[40.514,72.816]] }
+  ];
+
+  const treks = [
+    { name: 'J2 · Rando canyon de Konorchek (8–10 km A/R)', pts: [[42.548,75.870],[42.558,75.895],[42.567,75.915]] },
+    { name: 'J4 · Trek 1/5 : Ak-Suu → Altyn Arashan (15 km, +700 m)', pts: [[42.498,78.528],[42.46,78.56],[42.42,78.59],[42.372,78.607]] },
+    { name: 'J5 · Trek 2/5 : Altyn Arashan → camp de Keldike (~3 300 m)', pts: [[42.372,78.607],[42.355,78.590],[42.348,78.565],[42.350,78.548]] },
+    { name: 'J6 · Trek 3/5 : col Ala-Kul 3 860 m → lac → Sirota', pts: [[42.350,78.548],[42.352,78.540],[42.346,78.515],[42.350,78.490],[42.356,78.468]] },
+    { name: 'J7 · Trek 4/5 : Sirota → vallée de Karakol → camp Telety (~3 100 m)', pts: [[42.356,78.468],[42.375,78.455],[42.386,78.443],[42.375,78.40],[42.365,78.37]] },
+    { name: 'J8–J9 · Trek 5/5 : col Telety 3 759 m → Kok-Jaiyk → Jeti-Oguz', pts: [[42.365,78.37],[42.362,78.343],[42.35,78.30],[42.34,78.27],[42.355,78.235],[42.437,78.225]] },
+    { name: 'J11–J12 · Trek Song-Kul : Kyzart → Kilemche → col → rive du lac', pts: [[42.083,75.295],[42.04,75.28],[42.00,75.26],[41.95,75.24],[41.92,75.23],[41.885,75.220],[41.870,75.180]] },
+    { name: 'J14 · Option : montée au col de Tash Rabat 3 968 m (A/R)', pts: [[40.823,75.284],[40.80,75.30],[40.79,75.32]] },
+    { name: 'J15 · Marche Kök-Kyya → lac Kel-Suu (8–12 km A/R)', pts: [[40.56,76.28],[40.50,76.31],[40.44,76.35]] },
+    { name: 'J18 · Rando cascades d\'Arslanbob (12–14 km)', pts: [[41.339,72.939],[41.355,72.95],[41.365,72.945]] }
+  ];
+
+  const nights = [
+    { d: 'J1',  city: true,  ll: [42.8746,74.5698], t: '<b>Bichkek</b> — auberge · 🚿<br>Cash, SIM, gaz (TUK), permis Kel-Suu' },
+    { d: 'J2',  city: true,  ll: [42.649,77.083],  t: '<b>Cholpon-Ata</b> — guesthouse · 🚿<br>Konorchek en passant + finale World Nomad Games' },
+    { d: 'J3',  city: true,  ll: [42.490,78.394],  t: '<b>Karakol</b> — guesthouse · 🚿<br>Courses des 5 jours de trek' },
+    { d: 'J4',  city: false, ll: [42.372,78.607],  t: '<b>Altyn Arashan (2 500 m)</b> — tente/lodge · ♨️ sources chaudes' },
+    { d: 'J5',  city: false, ll: [42.350,78.548],  t: '<b>Camp sous le col (~3 300 m)</b> — tente · 🧼' },
+    { d: 'J6',  city: false, ll: [42.356,78.468],  t: '<b>Sirota (~2 900 m)</b> — tente · 🧼<br>Après le col Ala-Kul 3 860 m' },
+    { d: 'J7',  city: false, ll: [42.365,78.37],   t: '<b>Camp Telety (~3 100 m)</b> — tente · 🧼' },
+    { d: 'J8',  city: false, ll: [42.34,78.27],    t: '<b>Kok-Jaiyk (Jeti-Oguz)</b> — tente/yourte · 🧼<br>Après le col Telety 3 759 m' },
+    { d: 'J9',  city: false, ll: [42.121,76.988],  t: '<b>Plage de l\'Issyk-Kul (Bokonbaevo)</b> — bivouac · 🏊<br>Canyon Skazka + aigliers' },
+    { d: 'J10', city: true,  ll: [42.216,75.755],  t: '<b>Kochkor</b> — homestay CBT · 🚿<br>Organisation Song-Kul' },
+    { d: 'J11', city: false, ll: [42.00,75.26],    t: '<b>Jailoo de Kilemche</b> — tente/yourte · 🧼' },
+    { d: 'J12', city: false, ll: [41.885,75.220],  t: '<b>Song-Kul (3 016 m)</b> — yourte · 🧼<br>Ciel étoilé exceptionnel' },
+    { d: 'J13', city: true,  ll: [41.428,75.991],  t: '<b>Naryn</b> — guesthouse · 🚿<br>Caler le charter 4x4 de 3 jours (CBT)' },
+    { d: 'J14', city: false, ll: [40.823,75.284],  t: '<b>Tash Rabat (3 200 m)</b> — yourte à poêle · 🧼<br>Caravansérail + option col 3 968 m' },
+    { d: 'J15', city: false, ll: [40.56,76.28],    t: '<b>Kök-Kyya (~3 000 m)</b> — yourte/tente · 🧼<br>Lac Kel-Suu (permis au checkpoint)' },
+    { d: 'J16', city: true,  ll: [41.404,74.044],  t: '<b>Kazarman</b> — homestay · 🚿/banya<br>Fin du charter, piste d\'Ak-Tal' },
+    { d: 'J17', city: true,  ll: [41.339,72.939],  t: '<b>Arslanbob</b> — homestay CBT · 🚿<br>J17 à J19 : cascades + récolte des noix' },
+    { d: 'J20', city: true,  ll: [40.514,72.816],  t: '<b>Och</b> — guesthouse · 🚿<br>Sulaiman-Too, bazar Jayma, puis envol J21' }
+  ];
+
+  // ——— Étiquettes : uniquement les lieux du parcours ———
+  const labels = [
+    { n: 'BICHKEK',        ll: [42.97,74.67], s: 'gaz (TUK) · permis · bazar' },
+    { n: 'Konorchek',      ll: [42.63,75.95], s: 'canyon' },
+    { n: 'Cholpon-Ata',    ll: [42.77,77.13], s: 'World Nomad Games (fin)' },
+    { n: 'KARAKOL',        ll: [42.59,78.62], s: 'ashlan-fu · banya' },
+    { n: 'Altyn Arashan',  ll: [42.42,78.82], s: 'bains chauds' },
+    { n: 'Col Ala-Kul',    ll: [42.27,78.52], s: '3 860 m · lac turquoise' },
+    { n: 'Jeti-Oguz',      ll: [42.49,78.00], s: 'roches des Sept Taureaux' },
+    { n: 'Skazka',         ll: [42.08,77.35], s: 'canyon conte de fées' },
+    { n: 'Bokonbaevo',     ll: [42.03,76.90], s: 'aigliers · plage' },
+    { n: 'Kochkor',        ll: [42.30,75.72], s: 'CBT · feutre shyrdak' },
+    { n: 'SONG-KUL',       ll: [41.74,75.00], s: '3 016 m · cheval · yourtes' },
+    { n: 'NARYN',          ll: [41.50,76.12], s: 'CBT (charter 4x4) · banya' },
+    { n: 'Tash Rabat',     ll: [40.93,74.85], s: 'caravansérail XVe s.' },
+    { n: 'KEL-SUU',        ll: [40.34,76.38], s: '3 514 m · lac-fjord' },
+    { n: 'Kazarman',       ll: [41.53,74.10], s: 'bout de la piste' },
+    { n: 'Jalal-Abad',     ll: [40.86,73.10] },
+    { n: 'ARSLANBOB',      ll: [41.50,72.78], s: 'noyeraies · cascades' },
+    { n: 'OCH',            ll: [40.41,72.74], s: 'Sulaiman-Too · bazar Jayma' }
+  ];
+
+  // ——— Activités (étoiles violettes) ———
+  const acts = [
+    { ll: [42.876,74.60],  t: '<b>J1 après-midi · Bichkek</b><br>Gaz chez TUK, permis Kel-Suu, place Ala-Too, parc Panfilov' },
+    { ll: [42.567,75.915], t: '<b>J2 matin · Canyon Konorchek</b><br>Orgues rouges et cheminées de fées (2 h 30–3 h 30)' },
+    { ll: [42.66,77.12],   t: '<b>J2 après-midi · World Nomad Games</b><br>Kok-boru, aigliers — dernier jour des Jeux (si calendrier confirmé)' },
+    { ll: [42.49,78.41],   t: '<b>J3 après-midi · Karakol</b><br>Bazar Ak-Tilek, cathédrale en bois, mosquée dungane · J7 : banya' },
+    { ll: [42.372,78.62],  t: '<b>J4 soir · Bains chauds d\'Altyn Arashan</b><br>Sources naturelles ~250–500 som — avant les cols' },
+    { ll: [42.346,78.515], t: '<b>J6 matin · Lac Ala-Kul (3 532 m)</b><br>Le turquoise du voyage, vu du col puis de la rive' },
+    { ll: [42.34,78.26],   t: '<b>J8 après-midi · Kok-Jaiyk</b><br>« Vallée des fleurs », cascade des tresses de la jeune fille' },
+    { ll: [42.36,78.22],   t: '<b>J9 matin · Roches de Jeti-Oguz</b><br>Sept Taureaux et Cœur brisé' },
+    { ll: [42.161,77.36],  t: '<b>J9 après-midi · Canyon Skazka</b><br>Labyrinthe rouge et ocre (~2 h, 50 som)' },
+    { ll: [42.115,76.99],  t: '<b>J9 fin d\'après-midi · Bokonbaevo</b><br>Démonstration d\'aiglier (~2 000 som/groupe via CBT) puis bivouac plage' },
+    { ll: [42.22,75.76],   t: '<b>J10 après-midi · Kochkor</b><br>Coopérative de feutre Altyn Kol (tapis shyrdak) + organisation Song-Kul au CBT' },
+    { ll: [41.87,75.19],   t: '<b>J13 matin · Song-Kul</b><br>Balade à cheval sur la rive (~700 som/h) · soir J12 : ciel étoilé' },
+    { ll: [40.82,75.29],   t: '<b>J14 midi · Caravansérail de Tash Rabat</b><br>Pierre du XVe s. (~100 som) · après-midi : col 3 968 m, vue Chatyr-Kul' },
+    { ll: [40.44,76.35],   t: '<b>J15 après-midi · Lac Kel-Suu</b><br>Fjord d\'altitude entre parois verticales (option cheval ~1 000 som)' },
+    { ll: [41.365,72.95],  t: '<b>J18 · Grande cascade d\'Arslanbob (80 m)</b><br>Boucle par la petite cascade et les belvédères' },
+    { ll: [41.31,72.91],   t: '<b>J19 · La noyeraie en récolte</b><br>Repas partagé avec une famille de récolteurs (via CBT) · option nuit en forêt' },
+    { ll: [40.528,72.79],  t: '<b>J20 après-midi · Och</b><br>Bazar Jayma, plov, montée de Sulaiman-Too (UNESCO) au coucher du soleil' }
+  ];
+
+  const group = L.featureGroup();
+  drawAll(roads, ROAD, group);
+  drawAll(treks, TREK, group);
+  labels.forEach(p => {
+    L.marker(p.ll, {
+      interactive: false,
+      icon: L.divIcon({ className: '', html: '<div class="plabel">' + p.n + (p.s ? '<small>' + p.s + '</small>' : '') + '</div>', iconSize: null, iconAnchor: [0, 8] })
+    }).addTo(group);
+  });
+  acts.forEach(a => {
+    L.marker(a.ll, {
+      icon: L.divIcon({ className: '', html: '<div class="actbadge">★</div>', iconSize: [18,18], iconAnchor: [9,9] })
+    }).bindPopup(a.t).addTo(group);
+  });
+  nights.forEach(n => {
+    L.marker(n.ll, {
+      icon: L.divIcon({ className: '', html: '<div class="daybadge' + (n.city ? ' city' : '') + '">' + n.d.replace('J','') + '</div>', iconSize: [26,26], iconAnchor: [13,13] })
+    }).bindPopup('<b>' + n.d + '</b> · ' + n.t).addTo(group);
+  });
+  group.addTo(map);
+  map.fitBounds(group.getBounds().pad(0.06));
+}
+</script>
+</body>
+</html>
