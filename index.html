@@ -242,8 +242,7 @@
   }
   .prog li.food b { color: var(--warn); }
   .prog li.maplink b { color: var(--muted); }
-  .prog li.maplink span { font-size: .88rem; color: var(--muted); }
-  .prog li.maplink a { white-space: nowrap; }
+  .prog li.maplink span { font-size: .88rem; color: var(--muted); overflow-wrap: break-word; min-width: 0; }
 
   /* tables */
   .tablewrap { overflow-x: auto; margin: 1.2rem 0; }
@@ -266,6 +265,19 @@
     .day { transition: border-color .15s ease; }
     .day:hover { border-color: var(--lake); }
   }
+
+  /* mobile */
+  @media (max-width: 640px) {
+    body { padding: 1.4rem .8rem 3rem; }
+    h2 { font-size: 1.3rem; }
+    .day { padding: .75rem .85rem; }
+    .day-head { gap: .3rem .6rem; margin-bottom: .5rem; }
+    .daynum { min-width: 0; }
+    .day-head h3 { flex-basis: 100%; }
+    .prog li { flex-direction: column; gap: .1rem; }
+    .prog li b { flex: none; padding-top: 0; }
+    .chapter-head .k-label { letter-spacing: .08em; }
+  }
 </style>
 
 </head>
@@ -281,7 +293,7 @@
   </div>
 
   <h2>La boucle en un coup d'œil</h2>
-  <figure class="mapwrap" style="margin-bottom:.2rem"><iframe src="carte-kirghizistan.html" title="Carte interactive du parcours" style="width:100%;height:560px;border:1px solid var(--line);border-radius:8px" loading="lazy"></iframe><figcaption style="font-size:.85rem;color:var(--muted);margin-top:.35rem">Carte interactive : zoomer à la molette ou avec +/−, cliquer les traits, pastilles et ★ pour le détail — <a href="carte-kirghizistan.html" target="_blank">ouvrir en plein écran</a> · <a href="carte-parcours.png" target="_blank">version image fixe (impression)</a>.</figcaption></figure>
+  <figure class="mapwrap" style="margin-bottom:.2rem"><iframe src="carte-kirghizistan.html" title="Carte interactive du parcours" style="width:100%;height:min(65vh,560px);border:1px solid var(--line);border-radius:8px" loading="lazy"></iframe><figcaption style="font-size:.85rem;color:var(--muted);margin-top:.35rem">Carte interactive : zoomer (molette, +/− ou pincement), toucher les traits, pastilles et ★ pour le détail — <a href="carte-kirghizistan.html" target="_blank">ouvrir en plein écran</a> · <a href="carte-parcours.png" target="_blank">version image fixe (impression)</a>.</figcaption></figure>
 
   <figure class="mapwrap">
     <svg viewBox="0 0 1010 545" role="img" aria-label="Carte schématique du Kirghizistan avec la boucle du voyage : Bichkek, Konorchek, Karakol, traversée à pied vers Jeti-Oguz, rive sud de l'Issyk-Kul, Kochkor, Song-Kul, Naryn, Tash Rabat, Kel-Suu, Kazarman, Arslanbob, Och.">

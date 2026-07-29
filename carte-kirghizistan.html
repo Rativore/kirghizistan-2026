@@ -37,13 +37,21 @@
   .leaflet-popup-content { font-size: .85rem; line-height: 1.4; }
   .leaflet-popup-content b { color: #14766F; }
   #offline { display: none; padding: 2rem; font-size: 1rem; color: #333; }
+  .topbar p.mini { display: none; }
+  @media (max-width: 640px) {
+    .topbar { left: 10px; right: 54px; padding: .4rem .6rem; }
+    .topbar h1 { font-size: .82rem; margin-bottom: .1rem; }
+    .topbar p.full { display: none; }
+    .topbar p.mini { display: block; font-size: .72rem; }
+  }
 </style>
 </head>
 <body>
 <div id="map"></div>
 <div class="topbar">
   <h1>Kirghizistan — la boucle de A à Z (4 → 25 septembre 2026)</h1>
-  <p><span class="sw road"></span>véhicule (marshrutka, taxi, 4x4) &nbsp; <span class="sw trek"></span>randonnée &nbsp;·&nbsp; pastilles = nuits J1 → J21 &nbsp;·&nbsp; <span style="color:#8A3FA0;font-weight:700">★</span> = activités (cliquer pour le détail). Basculer sur le calque « Topo détaillée » (en haut à droite) pour les sentiers et courbes de niveau. Tracés approchés — en trek, naviguer au GPX (fiche KG Nomad) dans Organic Maps.</p>
+  <p class="full"><span class="sw road"></span>véhicule (marshrutka, taxi, 4x4) &nbsp; <span class="sw trek"></span>randonnée &nbsp;·&nbsp; pastilles = nuits J1 → J21 &nbsp;·&nbsp; <span style="color:#8A3FA0;font-weight:700">★</span> = activités (cliquer pour le détail). Basculer sur le calque « Topo détaillée » (en haut à droite) pour les sentiers et courbes de niveau. Tracés approchés — en trek, naviguer au GPX (fiche KG Nomad) dans Organic Maps.</p>
+  <p class="mini"><span class="sw road"></span>véhicule &nbsp;<span class="sw trek"></span>rando &nbsp;·&nbsp; pastilles = nuits &nbsp;·&nbsp; <span style="color:#8A3FA0;font-weight:700">★</span> activités — toucher pour le détail</p>
 </div>
 <div id="offline">Cette carte a besoin d'internet (fond de carte). Recharge la page une fois connecté.</div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
