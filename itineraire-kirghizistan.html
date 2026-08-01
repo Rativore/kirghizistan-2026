@@ -163,12 +163,14 @@
     white-space: nowrap;
   }
   .chip.foot  { background: var(--walk-soft); color: var(--walk); }
+  .chip.horse { background: var(--walk-soft); color: var(--walk); border: 1.5px solid var(--walk); }
   .chip.bus   { background: var(--bus-soft); color: var(--bus); }
   .chip.taxi  { border: 1.5px solid var(--ochre); color: var(--ochre); }
   .chip.jeep  { background: var(--ochre-soft); color: var(--ochre); }
   .chip.fly   { border: 1.5px solid var(--muted); color: var(--muted); }
   .chip.rest  { background: var(--line); color: var(--chip-foot); }
   .chip.foot::before { content: "🚶 "; }
+  .chip.horse::before { content: "🐎 "; }
   .chip.bus::before  { content: "🚐 "; }
   .chip.taxi::before { content: "🚕 "; }
   .chip.jeep::before { content: "🛻 "; }
@@ -284,50 +286,50 @@
 <body>
 <div class="wrap">
   <p class="eyebrow">Tracé de voyage · 3 personnes · sac à dos &amp; tente</p>
-  <h1>D'Och à Almaty, trois semaines sans jamais revenir sur ses pas</h1>
-  <p class="lede">Itinéraire complet pour trois voyageurs en autonomie, septembre 2026. Une grande traverse en boucle ouverte : Och → Arslanbob → piste de Kazarman → Kel-Suu → Tash Rabat → Naryn → Song-Kul → Kochkor → rive sud de l'Issyk-Kul → traversée à pied du massif Terskey (Jeti-Oguz, col Telety, col Ala-Kul, Altyn Arashan) → Karakol → frontière de Karkara → lacs Kolsai → canyon de Charyn → Almaty. Chaque journée est détaillée heure par heure, avec son transport et son point d'hygiène.</p>
+  <h1>De Bichkek à Almaty, trois semaines sans jamais revenir sur ses pas</h1>
+  <p class="lede">Itinéraire complet pour trois voyageurs en autonomie, septembre 2026, bâti autour de deux priorités : <strong>la région de Karakol</strong> et <strong>le cheval</strong>. Une grande traverse d'ouest en est : Bichkek → Cholpon-Ata (finale des World Nomad Games) → Kochkor → trek à cheval de 3 jours vers Song-Kul → Naryn → Tash Rabat → Kel-Suu → rive sud de l'Issyk-Kul → traversée à pied du massif Terskey (Jeti-Oguz, col Telety, col Ala-Kul, Altyn Arashan) → Karakol → frontière de Karkara → lacs Kolsai → canyon de Charyn → Almaty. Chaque journée est détaillée heure par heure, avec son transport et son point d'hygiène.</p>
 
   <div class="notice">
-    <p><strong>Calage : départ de Paris vendredi 4 septembre (arrivée à Och samedi 5 à l'aube), vol retour samedi 26 septembre depuis Almaty.</strong> L'aller passe par le Pegasus du vendredi soir Istanbul → Och — la seule rotation compatible ; le retour depuis Almaty s'offre le luxe d'une desserte quotidienne (Pegasus, Turkish, Air Astana, Wizz Air).</p>
-    <p>Ce sens de parcours met le grand trek en <strong>fin de séjour</strong> : deux semaines d'acclimatation avant le col Ala-Kul (3 860 m), et les sources chaudes d'Altyn Arashan en récompense <em>après</em> le col. En échange, on renonce à la récolte des noix d'Arslanbob (elle démarre fin septembre) et aux World Nomad Games (31 août – 6 septembre côté Issyk-Kul) — et on gagne la finale kazakhe : Kolsai, Charyn, Almaty.</p>
+    <p><strong>Calage : départ de Paris vendredi 4 septembre au soir (arrivée à Bichkek samedi 5 à l'aube), vol retour samedi 26 septembre depuis Almaty.</strong> Les deux aéroports sont desservis tous les jours — aucune contrainte de rotation, contrairement à un départ d'Och.</p>
+    <p>Le sens de parcours garde le meilleur pour la fin : le grand trek de Karakol tombe en <strong>fin de séjour</strong>, avec deux semaines d'acclimatation avant le col Ala-Kul (3 860 m) et les sources chaudes d'Altyn Arashan en récompense <em>après</em> le col. Et l'arrivée du 5 permet d'attraper la <strong>finale des World Nomad Games</strong> à Cholpon-Ata le dimanche 6 — kok-boru et aigliers dès le deuxième jour : le voyage commence à cheval.</p>
   </div>
 
   <h2>La traverse en un coup d'œil</h2>
   <figure class="mapwrap" style="margin-bottom:.2rem"><iframe src="carte-kirghizistan.html" title="Carte interactive du parcours" style="width:100%;height:min(65vh,560px);border:1px solid var(--line);border-radius:8px" loading="lazy"></iframe><figcaption style="font-size:.85rem;color:var(--muted);margin-top:.35rem">Carte interactive : zoomer (molette, +/− ou pincement), toucher les traits, pastilles et ★ pour le détail — <a href="carte-kirghizistan.html" target="_blank">ouvrir en plein écran</a>.</figcaption></figure>
 
   <figure class="mapwrap">
-    <svg viewBox="0 0 1010 545" role="img" aria-label="Carte schématique du Kirghizistan et du sud-est kazakh avec la traverse du voyage : Och, Arslanbob, Kazarman, Kel-Suu, Tash Rabat, Naryn, Song-Kul, Kochkor, rive sud de l'Issyk-Kul, traversée à pied vers Karakol, frontière de Karkara, lacs Kolsai, canyon de Charyn, Almaty.">
+    <svg viewBox="0 0 1010 545" role="img" aria-label="Carte schématique du Kirghizistan et du sud-est kazakh avec la traverse du voyage : Bichkek, Cholpon-Ata, Kochkor, Song-Kul à cheval, Naryn, Tash Rabat, Kel-Suu, rive sud de l'Issyk-Kul, traversée à pied vers Karakol, frontière de Karkara, lacs Kolsai, canyon de Charyn, Almaty.">
       <!-- contour simplifié du pays -->
       <path class="map-country" d="M153,60 L324,72 L486,18 L657,54 L882,78 L990,144 L882,216 L792,276 L666,372 L540,360 L450,468 L396,504 L279,480 L216,468 L18,420 L5,396 L126,312 L225,276 L180,216 L90,180 L144,132 Z"/>
       <!-- lacs -->
       <ellipse class="map-lake" cx="722" cy="120" rx="97" ry="32"/>
       <ellipse class="map-lake" cx="534" cy="188" rx="21" ry="12"/>
       <text class="water" x="722" y="126" text-anchor="middle">Issyk-Kul</text>
-      <text class="sub" x="500" y="40">KAZAKHSTAN</text>
+      <text class="sub" x="200" y="38">KAZAKHSTAN</text>
 
       <!-- segments véhicule (pointillés) -->
-      <path class="map-road" d="M324,344 L340,296 L337,248"/>
-      <path class="map-road" d="M337,248 L340,296 L436,240"/>
-      <path class="map-road" d="M436,240 Q545,285 643,358"/>
-      <path class="map-road" d="M643,358 L547,310"/>
-      <path class="map-road" d="M547,310 L610,236"/>
-      <path class="map-road" d="M610,236 L534,188"/>
-      <path class="map-road" d="M593,142 L629,113 L701,154 L734,152 L813,131"/>
+      <path class="map-road" d="M485,64 L629,113 L705,90"/>
+      <path class="map-road" d="M705,90 L629,113 L593,142"/>
+      <path class="map-road" d="M534,188 L610,236"/>
+      <path class="map-road" d="M610,236 L547,310"/>
+      <path class="map-road" d="M547,310 L643,358"/>
+      <path class="map-road" d="M643,358 Q660,290 610,236"/>
+      <path class="map-road" d="M610,236 L597,170 L593,142 L629,113 L701,154"/>
+      <path class="map-road" d="M701,154 L734,152 L813,131"/>
       <path class="map-road" d="M827,109 L880,90 L909,64 L902,45 L825,48"/>
       <path class="map-road" d="M825,48 L862,40 L890,30 L800,18 L700,25"/>
-      <!-- segments trek à pied (trait plein vert) -->
-      <path class="map-trek" d="M534,188 L549,164 L593,142"/>
+      <!-- segments à pied / à cheval (trait plein vert) -->
+      <path class="map-trek" d="M593,142 L549,164 L534,188"/>
       <path class="map-trek" d="M813,131 L842,131 L849,124 L841,112 L827,109"/>
 
       <!-- étapes -->
-      <circle class="map-dot" cx="324" cy="344" r="8"/>
-      <circle class="map-dot" cx="337" cy="248" r="7"/>
-      <circle class="map-dot" cx="436" cy="240" r="6"/>
-      <circle class="map-dot peak" cx="643" cy="358" r="7"/>
-      <circle class="map-dot peak" cx="547" cy="310" r="7"/>
-      <circle class="map-dot" cx="610" cy="236" r="8"/>
-      <circle class="map-dot peak" cx="534" cy="188" r="7"/>
+      <circle class="map-dot" cx="485" cy="64" r="8"/>
+      <circle class="map-dot" cx="705" cy="90" r="6"/>
       <circle class="map-dot" cx="593" cy="142" r="7"/>
+      <circle class="map-dot peak" cx="534" cy="188" r="7"/>
+      <circle class="map-dot" cx="610" cy="236" r="8"/>
+      <circle class="map-dot peak" cx="547" cy="310" r="7"/>
+      <circle class="map-dot peak" cx="643" cy="358" r="7"/>
       <circle class="map-dot" cx="701" cy="154" r="6"/>
       <circle class="map-dot" cx="734" cy="152" r="6"/>
       <circle class="map-dot" cx="813" cy="131" r="6"/>
@@ -338,14 +340,13 @@
       <circle class="map-dot" cx="700" cy="25" r="8"/>
 
       <!-- libellés -->
-      <text x="310" y="350" text-anchor="end">Och</text>
-      <text x="323" y="243" text-anchor="end">Arslanbob</text>
-      <text class="sub" x="436" y="226" text-anchor="middle">Kazarman</text>
-      <text x="657" y="363">Kel-Suu</text>
-      <text x="533" y="316" text-anchor="end">Tash Rabat</text>
-      <text x="624" y="241">Naryn</text>
-      <text x="508" y="176" text-anchor="end">Song-Kul</text>
+      <text x="485" y="48" text-anchor="middle">Bichkek</text>
+      <text class="sub" x="716" y="74" text-anchor="middle">Cholpon-Ata</text>
       <text x="601" y="135">Kochkor</text>
+      <text x="508" y="176" text-anchor="end">Song-Kul</text>
+      <text x="624" y="241">Naryn</text>
+      <text x="533" y="316" text-anchor="end">Tash Rabat</text>
+      <text x="657" y="363">Kel-Suu</text>
       <text class="sub" x="668" y="141" text-anchor="end">Bokonbaevo</text>
       <text class="sub" x="734" y="176" text-anchor="middle">Skazka</text>
       <text class="sub" x="806" y="152" text-anchor="end">Jeti-Oguz</text>
@@ -358,7 +359,7 @@
     </svg>
   </figure>
   <ul class="maplegend">
-    <li><span class="sw"></span> trek à pied (tente sur le dos)</li>
+    <li><span class="sw"></span> à pied ou à cheval</li>
     <li><span class="sw road"></span> route ou piste (marshrutka, taxi, 4x4)</li>
     <li><span class="sw dotc"></span> ville-étape</li>
     <li><span class="sw dotp"></span> haute altitude (&gt; 3 000 m)</li>
@@ -367,14 +368,13 @@
 
   <div class="routewrap">
     <div class="route">
-      <div class="stop"><b>Och</b><small>J1</small></div>
-      <div class="stop"><b>Arslanbob</b><small>J2–J3</small></div>
-      <div class="stop"><b>Kazarman</b><small>J4</small></div>
-      <div class="stop peak"><b>Kel-Suu</b><small>J5–J6 · 3 514 m</small></div>
-      <div class="stop peak"><b>Tash Rabat</b><small>J6–J7</small></div>
-      <div class="stop"><b>Naryn</b><small>J7</small></div>
-      <div class="stop peak"><b>Song-Kul</b><small>J8–J10 · 3 016 m</small></div>
-      <div class="stop"><b>Kochkor · rive sud</b><small>J10–J12</small></div>
+      <div class="stop"><b>Bichkek</b><small>J1</small></div>
+      <div class="stop"><b>Cholpon-Ata</b><small>J2 · Nomad Games</small></div>
+      <div class="stop"><b>Kochkor</b><small>J3</small></div>
+      <div class="stop peak"><b>Song-Kul à cheval</b><small>J4–J6 · 3 016 m</small></div>
+      <div class="stop"><b>Naryn</b><small>J7 · J10</small></div>
+      <div class="stop peak"><b>Tash Rabat · Kel-Suu</b><small>J8–J9</small></div>
+      <div class="stop"><b>Rive sud</b><small>J11–J12</small></div>
       <div class="stop peak"><b>Col Telety</b><small>J14 · 3 759 m</small></div>
       <div class="stop peak"><b>Col Ala-Kul</b><small>J16 · 3 860 m</small></div>
       <div class="stop"><b>Karakol</b><small>J17–J18</small></div>
@@ -384,160 +384,163 @@
   </div>
   <ul class="legend">
     <li><span class="chip foot">À pied</span> trek, tente sur le dos</li>
+    <li><span class="chip horse">À cheval</span> trek monté, sacs sur cheval de bât</li>
     <li><span class="chip bus">Marshrutka</span> minibus local, départ quand c'est plein</li>
     <li><span class="chip taxi">Taxi partagé</span> voiture à la place, à négocier</li>
     <li><span class="chip jeep">4x4</span> piste, arrangé via CBT ou affrété</li>
-    <li><span class="chip fly">Vol</span> arrivée à Och, retour depuis Almaty</li>
+    <li><span class="chip fly">Vol</span> arrivée à Bichkek, retour depuis Almaty</li>
     <li><span class="chip rest">Ville / repos</span></li>
   </ul>
   <p class="src">Le stop marche très bien partout, mais la plupart des conducteurs fonctionnent en « stop payant » : annonce la couleur avant de monter (« bezplatno » = gratuit, ou demande « skolko stoit ? »). Sur chaque segment marqué marshrutka ou taxi, le stop reste une alternative crédible — à trois avec les sacs, viser les pick-up.</p>
 
   <div class="notice warn">
-    <p><strong>Les deux clefs de la traverse.</strong> ① Le <strong>charter 4x4 de 3 jours via CBT Naryn avec prise en charge à Kazarman</strong> (J5 → J7 : Kazarman → Kel-Suu → Tash Rabat → Naryn par la piste d'Ak-Tal) : le véhicule descend de Naryn la veille <em>avec les originaux des permis Kel-Suu</em> — à organiser <em>avant le départ</em> (agence permis + CBT Naryn), le checkpoint tombe dès le J5. Compter ~100–150 €/jour le véhicule plus la mise à disposition, divisé par trois. ② La <strong>frontière de Karkara (J19)</strong> est saisonnière (≈ mai–octobre, 7 h–17 h) : re-vérifier son ouverture avant le départ ; le plan B passe par la rive nord et le poste de Korday (voir Fusibles).</p>
+    <p><strong>Les deux clefs de la traverse.</strong> ① Le <strong>trek à cheval de 3 jours vers Song-Kul via CBT Kochkor</strong> (J4 → J6 : chevaux, cheval de bât, guide-horseman, nuits en yourte en pension — ~45–60 €/pers/jour) : à caler au bureau CBT dès le J3, idéalement pré-contacter avant le départ. ② La <strong>frontière de Karkara (J19)</strong> est saisonnière (≈ mai–octobre, 7 h–17 h) : re-vérifier son ouverture avant le départ ; le plan B passe par la rive nord et le poste de Korday (voir Fusibles).</p>
   </div>
 
   <!-- CHAPITRE 1 -->
   <section class="chapter">
-    <div class="chapter-head"><h2>La Ferghana d'entrée</h2><span class="k-label">Chapitre 1 · J1–J4 · Och, les noyeraies, la piste du nord</span></div>
+    <div class="chapter-head"><h2>Bichkek, les Jeux et la porte des jailoos</h2><span class="k-label">Chapitre 1 · J1–J3 · logistique, kok-boru, cap sur Kochkor</span></div>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J1 · sam 5/9</span><h3>Och — atterrir à l'aube dans la ville aux 3 000 ans</h3><div class="chips"><span class="chip fly">Vol</span><span class="chip rest">Ville</span></div></div>
+      <div class="day-head"><span class="daynum">J1 · sam 5/9</span><h3>Bichkek — tout préparer en une journée</h3><div class="chips"><span class="chip fly">Vol</span><span class="chip rest">Ville</span></div></div>
       <ul class="prog">
-        <li><b>Aube</b><span>Atterrissage à Och (OSS) vers 4 h 30 (Pegasus via Istanbul-SAW). Taxi vers le centre (~15 min, 300–400 som), guesthouse prévenue de l'arrivée matinale — sieste jusqu'en fin de matinée, la journée est volontairement douce.</span></li>
-        <li><b>Midi</b><span>Le <strong>plov d'Och</strong> — réputé le meilleur du pays (quartier du bazar, ~200–300 som).</span></li>
-        <li><b>Après-midi</b><span>Logistique : gros retrait de cash (peu de distributeurs avant Naryn — prévoir l'enveloppe des 6 premiers jours), SIM MegaCom ou O! (~500 som pour ~50 Go, passeport requis), et surtout <strong>cartouches de gaz</strong> — Och est la base des expéditions du pic Lénine, viser les magasins outdoor et le bazar (valider le stock complet du voyage <em>avant de quitter la ville</em> : rien avant Karakol J17). Puis <strong>bazar Jayma</strong>, l'un des plus vieux marchés d'Asie centrale.</span></li>
-        <li><b>Soir</b><span>Vers 17 h, montée de <strong>Sulaiman-Too</strong> (UNESCO) : grottes, musée troglodyte, coucher de soleil sur la ville et le Pamir Alay. Répartition du matériel commun entre les trois sacs.</span></li>
-        <li class="food"><b>Manger</b><span>Midi : plov d'Och. Soir : chachlik et thé en tchaïkhana ; lepioshka d'Och encore chaude du tandyr. Courses de base pour demain (pain, fromage, fruits secs).</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/search/?api=1&amp;query=Osh+International+Airport">aéroport d'Och (OSS)</a> · <a href="https://www.wikiloc.com/hiking-trails/bazar-montana-sagrada-sulaiman-too-museo-ermita-de-babur-osh-kirguistan-227342281">tracé Wikiloc bazar + Sulaiman-Too (8,9 km)</a> · <a href="https://2gis.kg/osh">plan d'Och (2GIS)</a></span></li>
+        <li><b>Aube</b><span>Atterrissage à Manas (FRU) au petit matin. Taxi Yandex Go vers le centre (~40 min, 600–800 som). Dépôt des sacs, sieste courte si besoin.</span></li>
+        <li><b>Midi</b><span>Lagman et manty dans une cantine type Faiza ou Navat — premier contact avec la cuisine locale.</span></li>
+        <li><b>Après-midi</b><span>La tournée logistique : gros retrait de cash (Demir Bank = frais réduits ; 1 € ≈ 100 som — prévoir l'enveloppe des 10 prochains jours), SIM MegaCom ou O! (~500 som pour ~50 Go, passeport requis), cartouches de gaz chez <strong>TUK (Trekking Union of Kyrgyzstan)</strong> ou Red Fox (~450 som/230 g — le stock du voyage), et récupération de l'<strong>original du permis Kel-Suu</strong>. Réserver le bus de demain sur GoBus (tout part de la <strong>nouvelle gare nord-est</strong>).</span></li>
+        <li><b>Soir</b><span>Place Ala-Too, parc Panfilov ; répartition du matériel commun entre les trois sacs (réchaud, popote, filtre, tentes) ; fonds de carte Organic Maps hors-ligne vérifiés (KG + KZ).</span></li>
+        <li class="food"><b>Manger</b><span>Midi : cantine <strong>Faiza</strong> ou Navat — lagman et manty, ~250–400 som. Soir : tchaïkhana ou bazar Osh. À goûter dans la rue : le <em>maksym</em> (boisson de céréales, distributeurs Shoro). Courses de base pour demain : lepioshka, fromage, fruits secs.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/search/?api=1&amp;query=Trekking+Union+of+Kyrgyzstan+Bishkek">TUK sur Google Maps</a> · <a href="https://2gis.kg/bishkek">plan de Bichkek (2GIS)</a></span></li>
       </ul>
-      <p class="night">guesthouse à Och (~10–12 €) · 🚿 douche chaude (et hammam ouzbek au bazar pour les motivés).</p>
+      <p class="night">guesthouse/auberge à Bichkek (~10–12 €) · 🚿 douche chaude.</p>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J2 · dim 6/9</span><h3>Och → Arslanbob, le village de la noyeraie</h3><div class="chips"><span class="chip taxi">Taxi partagé</span><span class="chip bus">Marshrutka</span></div></div>
+      <div class="day-head"><span class="daynum">J2 · dim 6/9</span><h3>Cholpon-Ata — la finale des World Nomad Games</h3><div class="chips"><span class="chip bus">Marshrutka</span></div></div>
       <ul class="prog">
-        <li><b>Matin</b><span>Taxi partagé Och → Bazar-Korgon (~2 h), puis marshrutka → <strong>Arslanbob</strong> (~60 som, 1 h) : le grand village ouzbek au pied des falaises de Babash-Ata, au cœur de la plus grande noyeraie naturelle du monde.</span></li>
-        <li><b>Midi</b><span>Samsy sur la place du village.</span></li>
-        <li><b>Après-midi</b><span>Passage au <strong>bureau CBT</strong> (sur la place) : homestay pour trois + guide pour la noyeraie demain. Première balade dans les ruelles, canaux d'irrigation, vergers.</span></li>
-        <li><b>Soir</b><span>Thé sur un tapchane (plateforme à thé) avec vue sur le pic Babash-Ata (4 427 m). Confirmer par téléphone le charter CBT Naryn (rendez-vous à Kazarman J5 au matin, permis à bord).</span></li>
-        <li class="food"><b>Manger</b><span>Midi : <strong>samsy</strong> (feuilletés au four tandyr). Soir : premier <strong>dîner ouzbek</strong> au homestay — la cuisine change nettement au sud.</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Osh&amp;destination=Arslanbob">route Och → Arslanbob</a> · <a href="https://www.journalofnomads.com/arslanbob-kyrgyzstan-travel-guide/">fiche Arslanbob (Journal of Nomads)</a></span></li>
+        <li><b>Matin</b><span>Départ 7 h 30 : marshrutka Bichkek → Cholpon-Ata par la <strong>gorge de Boom</strong> (~4 h), les falaises rouges de Konorchek en toile de fond.</span></li>
+        <li><b>Midi</b><span>Arrivée, dépôt des sacs à la guesthouse (réservée d'avance — c'est LE week-end des Jeux), poisson fumé de l'Issyk-Kul sur le pouce.</span></li>
+        <li><b>Après-midi</b><span><strong>Dernier jour des World Nomad Games</strong> à l'hippodrome : la finale du <strong>kok-boru</strong> (le polo nomade), chasse à l'aigle, lutte à cheval er-enish — le voyage commence par le cheval dans sa version la plus spectaculaire.</span></li>
+        <li><b>Soir</b><span>Coucher de soleil sur le lac, ambiance de clôture des Jeux dans le village.</span></li>
+        <li class="food"><b>Manger</b><span>Midi et soir : <strong>poisson de l'Issyk-Kul</strong> fumé ou frit, la spécialité de la côte — et la street-food des Jeux (chachlik, boorsok).</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Bishkek&amp;destination=Cholpon-Ata">route Bichkek → Cholpon-Ata</a> · <a href="https://timesca.com/kyrgyzstan-announces-dates-for-world-nomad-games-2026/">dates des World Nomad Games 2026</a></span></li>
       </ul>
-      <p class="night">homestay CBT à Arslanbob · 🚿 douche (banya sur demande).</p>
+      <p class="night">guesthouse à Cholpon-Ata (réservée d'avance) · 🚿 douche chaude.</p>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J3 · lun 7/9</span><h3>Arslanbob — cascades, belvédères et noyeraie</h3><div class="chips"><span class="chip foot">À pied</span></div></div>
+      <div class="day-head"><span class="daynum">J3 · lun 7/9</span><h3>Cholpon-Ata → Kochkor, on organise le cheval</h3><div class="chips"><span class="chip bus">Marshrutka</span><span class="chip taxi">Taxi partagé</span></div></div>
       <ul class="prog">
-        <li><b>Repères</b><span>12–14 km · +600 m · 5 h</span></li>
-        <li><b>Matin</b><span>Montée à la <strong>grande cascade (80 m)</strong> — sentier raide au-dessus du village, vue sur toute la vallée.</span></li>
-        <li><b>Midi</b><span>Pique-nique au belvédère du panorama, face à Babash-Ata.</span></li>
-        <li><b>Après-midi</b><span>Boucle par la petite cascade puis la <strong>noyeraie (11 000 ha)</strong> avec le guide CBT — début septembre les noix sont encore sur l'arbre (la récolte démarre fin septembre), mais la forêt-cathédrale et les campements qui s'installent valent à eux seuls la marche. Marché du village au retour : miel blanc, noix de l'an dernier.</span></li>
-        <li><b>Soir</b><span>Dîner au homestay ; préparer les sacs pour la longue journée de piste de demain.</span></li>
-        <li class="food"><b>Manger</b><span>Pique-nique au belvédère (pain + <strong>miel blanc d'Arslanbob</strong>, une rareté, + noix du marché). Soir : plov ouzbek au homestay.</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/autumn-loop-from-arsalanbob-to-small-waterfall-to-big-waterfall-then-traverse-over-snowy-hills-back-29993288">tracé Wikiloc (boucle des 2 cascades, 20,6 km)</a> · <a href="https://opentopomap.org/#map=14/41.3600/72.9400">topo zoomée</a></span></li>
+        <li><b>Matin</b><span>Marshrutka/taxi Cholpon-Ata → Balykchy → <strong>Kochkor</strong> (~2 h 30). Installation au homestay CBT.</span></li>
+        <li><b>Midi</b><span>Lagman à Kochkor.</span></li>
+        <li><b>Après-midi</b><span><strong>Bureau CBT Kochkor</strong> : verrouiller le <strong>trek à cheval de 3 jours</strong> (3 chevaux + cheval de bât + guide, départ demain matin de Kyzart, yourtes réservées à Kilemche et au lac) et le 4x4 de sortie pour Naryn le J7. Visite de la coopérative de feutre <strong>Altyn Kol</strong> (tapis shyrdak — l'artisanat du pays).</span></li>
+        <li><b>Soir</b><span>Essayage symbolique : vérifier auprès du guide tailles, sacoches et casques (rarement fournis — demander), répartir ce qui part sur le cheval de bât.</span></li>
+        <li class="food"><b>Manger</b><span>Midi : lagman ou manty dans un café. Soir : <strong>dîner du homestay CBT</strong> — copieux et généralement inclus. Le trek à cheval est en pension complète : seuls les snacks de selle (fruits secs, chocolat) sont à acheter.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Cholpon-Ata&amp;destination=Kochkor">route Cholpon-Ata → Kochkor</a> · <a href="https://cbtkyrgyzstan.kg/en/">CBT Kyrgyzstan</a></span></li>
       </ul>
-      <p class="night">homestay CBT à Arslanbob · 🚿 douche chaude.</p>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="daynum">J4 · mar 8/9</span><h3>Arslanbob → Kazarman par le col Kaldamo</h3><div class="chips"><span class="chip taxi">Taxi partagé</span></div></div>
-      <ul class="prog">
-        <li><b>Matin</b><span>Taxi partagé Arslanbob → Jalal-Abad (~200 som, 1 h 30). <strong>Courses des pique-niques du charter au bazar de Jalal-Abad</strong> — dernier vrai bazar avant Naryn (J7).</span></li>
-        <li><b>Midi</b><span>Samsy au bazar de Jalal-Abad — les meilleurs du pays.</span></li>
-        <li><b>Après-midi</b><span>Taxi partagé Jalal-Abad → <strong>Kazarman</strong> par le <strong>col Kaldamo</strong> (3–4 h de piste, praticable en septembre) : cols et canyons ocre jusqu'au gros village minier hors du temps.</span></li>
-        <li><b>Soir</b><span>Homestay ; le <strong>chauffeur CBT descendu de Naryn</strong> arrive dans la soirée ou tôt demain — vérifier ensemble les <strong>originaux des permis Kel-Suu</strong> et fixer l'heure de départ.</span></li>
-        <li class="food"><b>Manger</b><span>Midi : samsy à Jalal-Abad. Soir : <strong>repas chez l'habitant à Kazarman</strong> (inclus au homestay) — cuisine familiale, pain cuit du jour. Vérifier les vivres du charter : 3 jours de pique-niques pour trois.</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Arslanbob&amp;destination=Kazarman&amp;waypoints=Jalal-Abad">route Arslanbob → Jalal-Abad → Kazarman</a></span></li>
-      </ul>
-      <p class="night">homestay à Kazarman · 🚿 douche simple ou banya familiale.</p>
+      <p class="night">homestay CBT à Kochkor · 🚿 douche (souvent une banya familiale).</p>
     </div>
   </section>
 
   <!-- CHAPITRE 2 -->
   <section class="chapter">
-    <div class="chapter-head"><h2>La haute steppe de Naryn</h2><span class="k-label">Chapitre 2 · J5–J10 · zone frontalière, caravansérail, yourtes</span></div>
+    <div class="chapter-head"><h2>À cheval vers Song-Kul, en 4x4 vers Kel-Suu</h2><span class="k-label">Chapitre 2 · J4–J10 · trois jours de selle, caravansérail, zone frontalière</span></div>
+
+    <p class="src" style="margin-top:.8rem">Le cœur « nomade » du voyage : trois jours à cheval jusqu'au lac Song-Kul — la façon dont les bergers y montent vraiment — puis le pivot de Naryn pour plonger en 4x4 vers Tash Rabat et le lac Kel-Suu, à la frontière chinoise.</p>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J5 · mer 9/9</span><h3>Charter 1/3 — la piste d'Ak-Tal vers Kel-Suu</h3><div class="chips"><span class="chip jeep">4x4</span></div></div>
+      <div class="day-head"><span class="daynum">J4 · mar 8/9</span><h3>À cheval 1/3 — Kyzart → jailoo de Kilemche</h3><div class="chips"><span class="chip horse">À cheval</span></div></div>
       <ul class="prog">
-        <li><b>Matin</b><span>Départ tôt : la journée de piste est longue (6–8 h). Cap plein est par <strong>Baetov / Ak-Tal</strong> — on contourne Naryn, la traverse ne se mordra jamais la queue. La piste suit les gorges de la rivière Naryn.</span></li>
-        <li><b>Midi</b><span>Pique-nique au bord de la rivière (prévu depuis Jalal-Abad).</span></li>
-        <li><b>Après-midi</b><span>Entrée en zone frontalière : <strong>checkpoint militaire — permis originaux (apportés par le chauffeur) + passeports</strong> des trois. Installation au camp de yourtes de la vallée de <strong>Kök-Kyya</strong> (~3 000 m).</span></li>
-        <li><b>Soir</b><span>Première vraie nuit d'altitude — et l'une des plus isolées du voyage (jusqu'à −5 °C).</span></li>
-        <li class="food"><b>Manger</b><span>Pique-nique de Jalal-Abad le midi ; <strong>dîner et petit-déj au camp de Kök-Kyya</strong> (pension, ~300–500 som/repas).</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://opentopomap.org/#map=9/41.0500/75.0000">vue d'ensemble de la piste Kazarman → Ak-Tal</a> · <a href="https://www.journalofnomads.com/kel-suu-lake-kyrgyzstan/">fiche Kel-Suu (Journal of Nomads)</a></span></li>
+        <li><b>Repères</b><span>~4–5 h de selle · +600 m · sacs sur le cheval de bât</span></li>
+        <li><b>Matin</b><span>Transfert Kochkor → <strong>Kyzart</strong> (1 h), rencontre avec le guide-horseman et les chevaux, réglage des étriers — puis départ par le col de Kyzart.</span></li>
+        <li><b>Midi</b><span>Pique-nique en surplomb des pâturages, chevaux à l'attache.</span></li>
+        <li><b>Après-midi</b><span>Traversée du <strong>jailoo de Kilemche</strong> au pas : troupeaux, bergers à cheval, yourtes éparses — on fait désormais partie du paysage, pas du décor.</span></li>
+        <li><b>Soir</b><span>Yourte à Kilemche ; goûter le <strong>kymyz</strong> (lait de jument fermenté) si la famille en propose — cette fois-ci, difficile de refuser.</span></li>
+        <li class="food"><b>Manger</b><span>Petit-déj au homestay, pique-nique fourni par le guide. Soir : dîner nomade en yourte (boorsok, kaymak, confitures) — pension complète du trek.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/1-2-song-kul-trek-kyzart-pass-to-kelimche-valley-hike-strava-138520608">tracé Wikiloc Kyzart → Kilemche (le même itinéraire, à pied)</a> · <a href="https://opentopomap.org/#map=13/42.0200/75.3000">topo zoomée</a></span></li>
       </ul>
-      <p class="night">yourte ou tente à Kök-Kyya · 🧼 toilette au torrent.</p>
+      <p class="night">yourte au jailoo de Kilemche · 🧼 toilette au torrent.</p>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J6 · jeu 10/9</span><h3>Charter 2/3 — Kel-Suu, le lac au bout du monde, puis Tash Rabat</h3><div class="chips"><span class="chip foot">À pied</span><span class="chip jeep">4x4</span></div></div>
+      <div class="day-head"><span class="daynum">J5 · mer 9/9</span><h3>À cheval 2/3 — le col, puis l'immensité de Song-Kul</h3><div class="chips"><span class="chip horse">À cheval</span></div></div>
       <ul class="prog">
-        <li><b>Repères</b><span>marche 8–12 km A/R · 3–4 h · lac à 3 514 m</span></li>
-        <li><b>Matin</b><span>Départ à pied (ou à cheval, ~1 000 som) : le canyon s'ouvre d'un coup sur le <strong>lac Kel-Suu</strong>, fjord d'altitude encaissé entre des parois verticales. Niveau d'eau encore haut en septembre. Thermos de thé dans le sac — il fait frais au petit matin.</span></li>
-        <li><b>Midi</b><span>Pique-nique au retour du lac, au camp.</span></li>
-        <li><b>Après-midi</b><span>Route 4x4 vers la vallée de <strong>Tash Rabat</strong> (3–4 h) : sortie de la zone frontalière, steppes d'At-Bashy.</span></li>
-        <li><b>Soir</b><span>Yourte au poêle à bois au pied du caravansérail, dîner chez la famille du camp.</span></li>
-        <li class="food"><b>Manger</b><span>Pique-nique pour le lac ; <strong>dîner au camp de yourtes de Tash Rabat</strong> (pension : soupe, plov, thé).</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/kel-suu-147570676">tracé Wikiloc (7,7 km depuis les yourtes)</a> · <a href="https://opentopomap.org/#map=12/40.5000/76.3000">topo zoomée Kel-Suu</a></span></li>
-      </ul>
-      <p class="night">camp de yourtes de Tash Rabat (3 200 m, poêle) · 🧼 rustique, pas de douche.</p>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="daynum">J7 · ven 11/9</span><h3>Charter 3/3 — le caravansérail, l'option col, puis Naryn</h3><div class="chips"><span class="chip foot">À pied</span><span class="chip jeep">4x4</span></div></div>
-      <ul class="prog">
-        <li><b>Repères</b><span>option col : 12 km A/R · +750 m · 4 h</span></li>
-        <li><b>Matin</b><span>Le <strong>caravansérail de Tash Rabat</strong> dans la lumière du matin (pierre du XVe siècle, entrée ~100 som) — dormaient ici les caravanes de la route de la soie. Pour les jambes fraîches : montée à pied (ou à cheval) vers le <strong>col de Tash Rabat (3 968 m)</strong>, vue sur le lac Chatyr-Kul et les crêtes frontalières chinoises.</span></li>
-        <li><b>Midi</b><span>Repas au camp, puis route vers At-Bashy et <strong>Naryn</strong> (~2 h). Fin du charter — remercier le chauffeur (un thermos de thé partagé fait beaucoup).</span></li>
-        <li><b>Après-midi</b><span>Passage au <strong>bureau CBT Naryn</strong> : 4x4 pour Song-Kul demain matin + yourte réservée au lac. Courses au bazar (pique-niques du trek Song-Kul), retrait de cash.</span></li>
-        <li><b>Soir</b><span><strong>Banya publique de Naryn</strong> (~100–200 som) — la remise à neuf après trois jours de piste.</span></li>
-        <li class="food"><b>Manger</b><span>Déjeuner au camp de Tash Rabat. Soir : café du centre de Naryn (lagman, chachlik). <strong>Courses : pique-niques des 2 jours de trek Song-Kul</strong> (dîners et petits-déjeuners en yourte fournis).</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/tash-rabat-chatyr-kol-pass-10686243">tracé Wikiloc du col (22 km A/R, +956 m)</a> · <a href="https://www.journalofnomads.com/tash-rabat-caravanserai-kyrgyzstan/">fiche Tash Rabat (Journal of Nomads)</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=CBT+Naryn">CBT Naryn sur Google Maps</a></span></li>
-      </ul>
-      <p class="night">guesthouse à Naryn · 🚿 douche chaude + ♨️ banya.</p>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="daynum">J8 · sam 12/9</span><h3>Naryn → Song-Kul par les 33 lacets du Moldo-Ashuu</h3><div class="chips"><span class="chip jeep">4x4</span></div></div>
-      <ul class="prog">
-        <li><b>Matin</b><span>4x4 CBT : vallée de Naryn puis montée spectaculaire des <strong>33 lacets du col Moldo-Ashuu</strong> (arrêt photo à la cascade), ~3 h jusqu'au plateau.</span></li>
-        <li><b>Midi</b><span>Arrivée au camp de yourtes de la rive sud : un lac de 270 km² posé à 3 016 m sur une steppe parfaitement vide.</span></li>
-        <li><b>Après-midi</b><span><strong>Balade à cheval</strong> le long de la rive (~700 som/h, se réserve à l'arrivée) — troupeaux, bergers, immensité.</span></li>
+        <li><b>Repères</b><span>~5–6 h de selle · col ~3 400 m · lac à 3 016 m</span></li>
+        <li><b>Matin</b><span>Montée au col (~3 400 m) — première vue sur le plateau de <strong>Song-Kul</strong> : un lac de 270 km² posé sur une steppe parfaitement vide. À cheval, le passage a une autre allure qu'à pied.</span></li>
+        <li><b>Midi</b><span>Pique-nique au col, à l'abri du vent.</span></li>
+        <li><b>Après-midi</b><span>Longue descente douce vers la rive, au trot sur les portions faciles pour qui veut ; arrivée au camp de yourtes réservé via CBT.</span></li>
         <li><b>Soir</b><span>Dîner en yourte (plov, thé sans fin) ; dehors, l'un des plus beaux ciels étoilés d'Asie centrale — aucune lumière à 60 km à la ronde.</span></li>
-        <li class="food"><b>Manger</b><span><strong>Dîner en yourte au bord du lac</strong> (inclus dans la nuitée CBT) : plov ou beshbarmak, thé au lait salé, boorsok à volonté — le repas le plus « nomade » du voyage.</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://opentopomap.org/#map=12/41.6500/75.4000">topo zoomée col Moldo-Ashuu</a> · <a href="https://www.discoverkyrgyzstan.org/song-kul-lake-yurt-camps-horse-treks-routes-and-when-to-go/">fiche des itinéraires Song-Kul</a></span></li>
+        <li class="food"><b>Manger</b><span>Pique-nique au col, puis <strong>dîner en yourte au bord du lac</strong> : plov ou beshbarmak, thé au lait salé, boorsok à volonté — le repas le plus « nomade » du voyage.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/kyzart-song-kul-via-uzbek-ashuu-pass-179360813">tracé Wikiloc (variante par le col Uzbek-Ashuu)</a> · <a href="https://opentopomap.org/#map=12/41.9200/75.2000">topo zoomée</a></span></li>
       </ul>
       <p class="night">yourte au bord du lac (3 016 m, il gèle) · 🧼 pas de douche — certains camps ont une petite banya, demander en réservant.</p>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J9 · dim 13/9</span><h3>Trek Song-Kul 1/2 — quitter le lac vers le jailoo de Kilemche</h3><div class="chips"><span class="chip foot">Trek</span></div></div>
+      <div class="day-head"><span class="daynum">J6 · jeu 10/9</span><h3>À cheval 3/3 — la journée des bergers</h3><div class="chips"><span class="chip horse">À cheval</span></div></div>
       <ul class="prog">
-        <li><b>Repères</b><span>15 km · +400 m / −600 m · 5–6 h</span></li>
-        <li><b>Matin</b><span>Lever de soleil sur le lac, puis départ à pied vers le nord : montée douce au col (~3 400 m), dernier regard sur le plateau de Song-Kul.</span></li>
-        <li><b>Midi</b><span>Pique-nique au col, à l'abri du vent.</span></li>
-        <li><b>Après-midi</b><span>Descente vers le <strong>jailoo de Kilemche</strong> : troupeaux, bergers à cheval, yourtes éparses — la vie nomade sans mise en scène.</span></li>
-        <li><b>Soir</b><span>Goûter le <strong>kymyz</strong> (lait de jument fermenté) si une famille en propose — expérience… authentique.</span></li>
-        <li class="food"><b>Manger</b><span>Petit-déj en yourte au lac, pique-nique au col. Soir : si yourte à Kilemche, dîner nomade (boorsok, kaymak, confitures) ; sinon réchaud.</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/kyzart-song-kul-via-uzbek-ashuu-pass-179360813">tracé Wikiloc (col Uzbek-Ashuu — sens inverse)</a> · <a href="https://opentopomap.org/#map=12/41.9200/75.2000">topo zoomée</a></span></li>
+        <li><b>Repères</b><span>~4–5 h de selle, au rythme choisi — ou demi-journée + sieste au lac</span></li>
+        <li><b>Matin</b><span>Lever de soleil sur le lac, puis grande boucle à cheval le long de la rive ouest : oiseaux migrateurs, chevaux en liberté, visites de yourtes de bergers avec le guide comme interprète.</span></li>
+        <li><b>Midi</b><span>Déjeuner chez une famille de bergers (organisé par le guide) — fromage kurut en cours de séchage, crème kaymak, pain de la veille.</span></li>
+        <li><b>Après-midi</b><span>Retour au camp au pas ; pour les cavaliers mordus, initiation aux allures locales ; pour les autres, sieste au soleil et marche sur la rive. Adieux aux chevaux — le guide redescend demain avec eux vers Kyzart.</span></li>
+        <li><b>Soir</b><span>Dernière nuit de yourte au lac ; le 4x4 de demain est confirmé par radio/téléphone satellite du camp.</span></li>
+        <li class="food"><b>Manger</b><span>Déjeuner chez les bergers (LE moment d'hospitalité du voyage), dîner au camp — toujours en pension.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.discoverkyrgyzstan.org/song-kul-lake-yurt-camps-horse-treks-routes-and-when-to-go/">fiche des itinéraires et camps de Song-Kul</a> · <a href="https://opentopomap.org/#map=12/41.8700/75.1500">topo zoomée du lac</a></span></li>
       </ul>
-      <p class="night">tente ou yourte à Kilemche · 🧼 toilette au torrent.</p>
+      <p class="night">yourte au bord du lac · 🧼 toilette au lac (courageux) ou au broc.</p>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J10 · lun 14/9</span><h3>Trek Song-Kul 2/2 — Kilemche → Kyzart, puis Kochkor</h3><div class="chips"><span class="chip foot">Trek</span><span class="chip taxi">Taxi partagé</span></div></div>
+      <div class="day-head"><span class="daynum">J7 · ven 11/9</span><h3>Song-Kul → Naryn par les 33 lacets du Moldo-Ashuu</h3><div class="chips"><span class="chip jeep">4x4</span></div></div>
       <ul class="prog">
-        <li><b>Repères</b><span>13 km · −600 m · 4–5 h</span></li>
-        <li><b>Matin</b><span>Traversée du jailoo puis descente par le col de Kyzart jusqu'au village de <strong>Kyzart</strong>.</span></li>
-        <li><b>Midi</b><span>Lagman dans un café de Kyzart, taxi/marshrutka vers <strong>Kochkor</strong> (1 h).</span></li>
-        <li><b>Après-midi</b><span>Visite de la coopérative de feutre <strong>Altyn Kol</strong> (tapis shyrdak — l'artisanat du pays) ; <strong>grosses courses au bazar de Kochkor pour les 5 jours de traversée</strong> (le meilleur ravitaillement avant le trek — compléments possibles à Bokonbaevo demain).</span></li>
-        <li><b>Soir</b><span>Homestay CBT, banya familiale.</span></li>
-        <li class="food"><b>Manger</b><span>Soir : <strong>dîner du homestay CBT</strong> — copieux et généralement inclus. Ravitaillement 5 jours : ~700 g/pers/jour — flocons d'avoine, pâtes, soupes en sachet, saucisson, kurut, lepioshka, fruits secs, chocolat, thé.</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/1-2-song-kul-trek-kyzart-pass-to-kelimche-valley-hike-strava-138520608">tracé Wikiloc Kyzart ↔ Kilemche (sens inverse)</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Kyzart&amp;destination=Kochkor">route Kyzart → Kochkor</a></span></li>
+        <li><b>Matin</b><span>Départ 4x4 (arrangé via CBT) : descente spectaculaire des <strong>33 lacets du col Moldo-Ashuu</strong> (arrêt photo à la cascade), puis vallée de Naryn (~3 h).</span></li>
+        <li><b>Midi</b><span>Lagman dans le centre de Naryn.</span></li>
+        <li><b>Après-midi</b><span><strong>Bureau CBT Naryn</strong> : verrouiller le charter 4x4 de 3 jours (Tash Rabat → Kel-Suu → retour), montrer les <strong>permis frontaliers</strong> (retirés à Bichkek J1 — sinon c'est ici qu'on les récupère), fixer l'heure de départ. Courses des pique-niques du charter au bazar.</span></li>
+        <li><b>Soir</b><span><strong>Banya publique de Naryn</strong> (~100–200 som) — la remise à neuf après trois jours de selle.</span></li>
+        <li class="food"><b>Manger</b><span>Soir : café du centre (lagman, chachlik). <strong>Courses : les pique-niques des 3 jours de charter</strong> — dernier vrai bazar avant le retour ici.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://opentopomap.org/#map=12/41.6500/75.4000">topo zoomée col Moldo-Ashuu</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=CBT+Naryn">CBT Naryn sur Google Maps</a></span></li>
       </ul>
-      <p class="night">homestay CBT à Kochkor · 🚿 douche (souvent une banya familiale).</p>
+      <p class="night">guesthouse à Naryn · 🚿 douche chaude + ♨️ banya.</p>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="daynum">J8 · sam 12/9</span><h3>Charter 1/3 — Tash Rabat, caravansérail du bout des steppes</h3><div class="chips"><span class="chip jeep">4x4</span><span class="chip foot">À pied</span></div></div>
+      <ul class="prog">
+        <li><b>Repères</b><span>option col : 12 km A/R · +750 m · 4 h (à pied ou à cheval)</span></li>
+        <li><b>Matin</b><span>Route vers At-Bashy puis la vallée de <strong>Tash Rabat</strong> (2 h) : le caravansérail de pierre du XVe siècle, seul au fond de sa vallée (entrée ~100 som) — dormaient ici les caravanes de la route de la soie.</span></li>
+        <li><b>Midi</b><span>Repas au camp de yourtes.</span></li>
+        <li><b>Après-midi</b><span>Montée vers le <strong>col de Tash Rabat (3 968 m)</strong> — à pied, ou <strong>à cheval</strong> pour prolonger le plaisir de la semaine (~1 000 som, se loue au camp) : vue sur le lac Chatyr-Kul et les crêtes frontalières chinoises. Demi-tour au col — c'est un belvédère, pas un passage.</span></li>
+        <li><b>Soir</b><span>Yourte au poêle à bois, dîner chez la famille du camp.</span></li>
+        <li class="food"><b>Manger</b><span>Déjeuner et <strong>dîner au camp de yourtes</strong> (en pension : soupe, plov, thé — ~300–500 som/repas). Pique-nique du sac pour la montée au col.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/tash-rabat-chatyr-kol-pass-10686243">tracé Wikiloc du col (22 km A/R, +956 m)</a> · <a href="https://opentopomap.org/#map=13/40.8200/75.2900">topo zoomée</a> · <a href="https://www.journalofnomads.com/tash-rabat-caravanserai-kyrgyzstan/">fiche Tash Rabat (Journal of Nomads)</a></span></li>
+      </ul>
+      <p class="night">camp de yourtes de Tash Rabat (3 200 m, poêle) · 🧼 rustique, pas de douche.</p>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="daynum">J9 · dim 13/9</span><h3>Charter 2/3 — Kel-Suu, le lac au bout du monde</h3><div class="chips"><span class="chip jeep">4x4</span><span class="chip foot">À pied</span></div></div>
+      <ul class="prog">
+        <li><b>Repères</b><span>marche 8–12 km A/R · 3–4 h · lac à 3 514 m</span></li>
+        <li><b>Matin</b><span>Piste vers la vallée de Kök-Kyya (3–4 h) ; <strong>checkpoint militaire : permis originaux + passeports</strong> des trois. Installation au camp (~3 000 m).</span></li>
+        <li><b>Midi</b><span>Pique-nique au camp, départ à pied (ou à cheval, ~1 000 som).</span></li>
+        <li><b>Après-midi</b><span>Marche jusqu'au <strong>lac Kel-Suu</strong> : le canyon s'ouvre d'un coup sur un fjord d'altitude encaissé entre des parois verticales. Retour au camp avant le froid du soir.</span></li>
+        <li><b>Soir</b><span>Nuit la plus isolée du voyage — et l'une des plus froides (jusqu'à −5/−10 °C).</span></li>
+        <li class="food"><b>Manger</b><span>Pique-nique de Naryn le midi ; <strong>dîner et petit-déj au camp de Kök-Kyya</strong> (pension). Thermos de thé pour la marche au lac.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/kel-suu-147570676">tracé Wikiloc (7,7 km depuis les yourtes)</a> · <a href="https://opentopomap.org/#map=12/40.5000/76.3000">topo zoomée</a> · <a href="https://www.journalofnomads.com/kel-suu-lake-kyrgyzstan/">fiche Kel-Suu (Journal of Nomads)</a></span></li>
+      </ul>
+      <p class="night">yourte ou tente à Kök-Kyya · 🧼 toilette au torrent.</p>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="daynum">J10 · lun 14/9</span><h3>Charter 3/3 — retour à Naryn, ravitaillement du grand trek</h3><div class="chips"><span class="chip jeep">4x4</span></div></div>
+      <ul class="prog">
+        <li><b>Matin</b><span>Dernier regard sur la vallée de Kök-Kyya, puis retour par la piste vers At-Bashy et <strong>Naryn</strong> (~5 h) — seul segment « aller-retour » du voyage, imposé par la zone frontalière.</span></li>
+        <li><b>Midi</b><span>Pique-nique des restes en route.</span></li>
+        <li><b>Après-midi</b><span><strong>Grosses courses au bazar de Naryn : les 5 jours de la traversée du Terskey</strong> (~700 g/pers/jour — flocons, pâtes, soupes, saucisson, kurut, lepioshka, fruits secs, chocolat). C'est le meilleur ravitaillement avant le trek ; compléments possibles à Bokonbaevo demain.</span></li>
+        <li><b>Soir</b><span>Pesée et équilibrage des sacs (viser ≤ 16 kg avec eau) ; taxi affrété pour demain réglé avec la guesthouse.</span></li>
+        <li class="food"><b>Manger</b><span>Soir : dernier restaurant avant un moment — chachlik, salades, et le plein de calories.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://opentopomap.org/#map=9/41.0500/75.5000">vue d'ensemble At-Bashy ↔ Naryn</a></span></li>
+      </ul>
+      <p class="night">guesthouse à Naryn · 🚿 douche chaude.</p>
     </div>
   </section>
 
@@ -545,19 +548,19 @@
   <section class="chapter">
     <div class="chapter-head"><h2>L'Issyk-Kul et la traversée du Terskey</h2><span class="k-label">Chapitre 3 · J11–J18 · rive sud, 2 cols, les sources en récompense</span></div>
 
-    <p class="src" style="margin-top:.8rem">La traversée à pied se fait d'ouest en est : on entre par Jeti-Oguz, on ressort à Ak-Suu — col Telety d'abord, col Ala-Kul ensuite, et les sources chaudes d'Altyn Arashan <em>après</em> les cols. Après deux semaines de voyage, l'acclimatation est faite : les 3 860 m passent bien. Variante plus facile au chapitre Fusibles.</p>
+    <p class="src" style="margin-top:.8rem">La traversée à pied se fait d'ouest en est : on entre par Jeti-Oguz, on ressort à Ak-Suu — col Telety d'abord, col Ala-Kul ensuite, et les sources chaudes d'Altyn Arashan <em>après</em> les cols. Après dix jours de voyage dont trois à cheval en altitude, l'acclimatation est faite : les 3 860 m passent bien. Variante plus facile au chapitre Fusibles.</p>
 
     <div class="day">
-      <div class="day-head"><span class="daynum">J11 · mar 15/9</span><h3>Kochkor → Bokonbaevo, la rive sud et les aigliers</h3><div class="chips"><span class="chip bus">Marshrutka</span><span class="chip taxi">Taxi partagé</span></div></div>
+      <div class="day-head"><span class="daynum">J11 · mar 15/9</span><h3>Naryn → Bokonbaevo par le col Dolon, les aigliers</h3><div class="chips"><span class="chip taxi">Taxi partagé</span></div></div>
       <ul class="prog">
-        <li><b>Matin</b><span>Marshrutka/taxi partagé Kochkor → Balykchy puis <strong>Bokonbaevo</strong> (2–3 h en tout ; à trois, privatiser un taxi direct coûte à peine plus).</span></li>
+        <li><b>Matin</b><span>Taxi affrété Naryn → col Dolon (3 030 m) → contournement de Kochkor → Balykchy → <strong>Bokonbaevo</strong> (~4–5 h). Seul tronçon repris du voyage : les 40 km Kochkor ↔ Balykchy — la géographie ne laisse pas d'autre route vers la rive sud.</span></li>
         <li><b>Midi</b><span>Lagman à Bokonbaevo, compléments de courses au magazin.</span></li>
-        <li><b>Après-midi</b><span>Démonstration de <strong>chasse à l'aigle</strong> (~2 000 som pour le groupe, via CBT/Salburun), puis plage.</span></li>
-        <li><b>Soir</b><span>Bivouac sur une plage déserte de l'<strong>Issyk-Kul</strong>, baignade (~18 °C), feu de camp.</span></li>
-        <li class="food"><b>Manger</b><span><strong>Courses au magazin de Bokonbaevo</strong> avant la plage : pain, légumes, brochettes, bières locales — dîner au feu de camp face au lac.</span></li>
-        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Kochkor&amp;destination=Bokonbayevo">route Kochkor → Bokonbaevo</a></span></li>
+        <li><b>Après-midi</b><span>Démonstration de <strong>chasse à l'aigle</strong> (~2 000 som pour le groupe, via CBT/Salburun) — le pendant « fauconnerie » du kok-boru vu aux Jeux.</span></li>
+        <li><b>Soir</b><span>Plage de l'<strong>Issyk-Kul</strong> : baignade (~17–18 °C), feu de camp — puis douche à la guesthouse : c'est la dernière eau chaude avant Altyn Arashan (J16).</span></li>
+        <li class="food"><b>Manger</b><span>Courses au magazin (pain, légumes, brochettes) — dîner au feu de camp face au lac, nuit en dur ensuite.</span></li>
+        <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Naryn&amp;destination=Bokonbayevo">route Naryn → Bokonbaevo</a></span></li>
       </ul>
-      <p class="night">tente sur la plage (ou guesthouse à Bokonbaevo) · 🏊 baignade dans le lac (ou 🚿 à Bokonbaevo).</p>
+      <p class="night">guesthouse à Bokonbaevo · 🚿 douche chaude (ou bivouac plage · 🏊 pour les puristes — mais la douche se paiera 5 jours plus tard).</p>
     </div>
 
     <div class="day">
@@ -566,7 +569,7 @@
         <li><b>Repères</b><span>~2 h de route + marche 8 km en montée douce</span></li>
         <li><b>Matin</b><span>Taxi négocié direction Karakol avec arrêt au <strong>canyon Skazka</strong> (entrée 50 som) : 2 h dans le labyrinthe rouge et ocre, la « Muraille de Chine » kirghize.</span></li>
         <li><b>Midi</b><span>Repas au village de Jeti-Oguz, au pied des falaises rouges des <strong>Sept Taureaux</strong> et du <strong>Cœur brisé</strong>.</span></li>
-        <li><b>Après-midi</b><span>Montée à pied (ou en taxi jusqu'au bout de la piste) vers la vallée de <strong>Kok-Jaiyk</strong>, la « vallée des fleurs » : cascade dite « les tresses de la jeune fille », yourtes saisonnières. C'est la porte du trek.</span></li>
+        <li><b>Après-midi</b><span>Montée à pied (ou en taxi jusqu'au bout de la piste) vers la vallée de <strong>Kok-Jaiyk</strong>, la « vallée des fleurs » : cascade dite « les tresses de la jeune fille », yourtes saisonnières. C'est la porte du trek — balades à cheval possibles au camp pour un dernier tour de selle.</span></li>
         <li><b>Soir</b><span>Dîner chez une famille du jailoo (demander sur place) ou réchaud ; vérification des sacs — demain on attaque les 5 jours.</span></li>
         <li class="food"><b>Manger</b><span>Midi : café simple au village de Jeti-Oguz (lagman, samsy). Soir : si des yourtes de bergers sont encore à Kok-Jaiyk, <strong>dîner chez la famille</strong> (plov, pain frais, kaymak, ~300–500 som).</span></li>
         <li class="maplink"><b>Carte</b><span><a href="https://opentopomap.org/#map=15/42.1600/77.3500">topo zoomée canyon Skazka</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Bokonbayevo&amp;destination=Jeti-Oguz">route Bokonbaevo → Jeti-Oguz</a></span></li>
@@ -610,7 +613,7 @@
         <li><b>Midi</b><span>Pique-nique à Sirota (le camp saisonnier vend parfois thé et snacks).</span></li>
         <li><b>Après-midi</b><span>Montée de la moraine jusqu'au <strong>lac Ala-Kul (3 532 m)</strong> : le turquoise du voyage, les glaciers du Terskey en face. Camp sur la rive — arriver avant le vent du soir.</span></li>
         <li><b>Soir</b><span>Nuit la plus haute et la plus froide du trek (gel assuré, −5 à −10 °C fin septembre) — mais le coucher puis le lever de soleil sur le lac valent chaque degré.</span></li>
-        <li class="food"><b>Manger</b><span>Ration chaude obligatoire le soir ; tout l'eau se filtre au lac. Dîner tôt, départ à l'aube demain.</span></li>
+        <li class="food"><b>Manger</b><span>Ration chaude obligatoire le soir ; toute l'eau se filtre au lac. Dîner tôt, départ à l'aube demain.</span></li>
         <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/2-day-hike-from-altyn-arashan-via-ala-kul-ala-kol-to-karakol-valley-72420077">tracé Wikiloc (sens inverse : vallée Karakol ↔ lac ↔ Arashan)</a> · <a href="https://www.komoot.com/collection/889928/stunning-kyrgyzstan-a-three-day-hike-to-ala-kul-lake">collection Komoot Ala-Kul</a> · <a href="https://opentopomap.org/#map=14/42.3500/78.5000">topo zoomée</a></span></li>
       </ul>
       <p class="night">tente au bord du lac Ala-Kul (3 532 m) · 🧼 (gel — lingettes et gant).</p>
@@ -620,7 +623,7 @@
       <div class="day-head"><span class="daynum">J16 · dim 20/9</span><h3>Trek 4/5 — col Ala-Kul 3 860 m, puis les sources chaudes</h3><div class="chips"><span class="chip foot">Trek</span></div></div>
       <ul class="prog">
         <li><b>Repères</b><span>15 km · +330 m / −1 360 m · 6–7 h</span></li>
-        <li><b>Aube</b><span>Départ 6 h 30 maxi : montée en balcon au-dessus du lac puis éboulis jusqu'au <strong>col Ala-Kul (3 860 m)</strong> — le point culminant du voyage, gagné avec deux semaines de montagne dans les jambes. Attention à la neige fraîche possible fin septembre (guêtres, départ tôt).</span></li>
+        <li><b>Aube</b><span>Départ 6 h 30 maxi : montée en balcon au-dessus du lac puis éboulis jusqu'au <strong>col Ala-Kul (3 860 m)</strong> — le point culminant du voyage, gagné avec deux semaines d'acclimatation dans les jambes. Attention à la neige fraîche possible fin septembre (guêtres, départ tôt).</span></li>
         <li><b>Midi</b><span>Descente de la vallée de Keldike ; pique-nique au premier replat herbeux (~3 300 m).</span></li>
         <li><b>Après-midi</b><span>Longue descente jusqu'à <strong>Altyn Arashan</strong> (2 500 m) : prairie, chevaux, lodges.</span></li>
         <li><b>Soir</b><span><strong>Bains chauds naturels</strong> (~250–500 som) — la récompense après le col, au meilleur moment possible. Dîner chaud au lodge.</span></li>
@@ -637,7 +640,7 @@
         <li><b>Matin</b><span>Dernier bain chaud au lever du jour pour les motivés, puis descente de la piste en forêt le long de l'Arashan jusqu'au village d'<strong>Ak-Suu</strong>.</span></li>
         <li><b>Midi</b><span>Marshrutka 350 Ak-Suu → <strong>Karakol</strong> (30 min) ; ashlan-fu au bazar (~100 som) — la spécialité dungane, gagnée.</span></li>
         <li><b>Après-midi</b><span>Guesthouse, vraie douche, lessive. Balade molle : cathédrale orthodoxe en bois, mosquée dungane.</span></li>
-        <li><b>Soir</b><span>Dîner dungan (laghman, ganfan) ; premier contact pour le transfert de jeudi vers la frontière de Karkara (guesthouse, CBT ou agence locale — ça s'organise en un coup de fil).</span></li>
+        <li><b>Soir</b><span>Dîner dungan (laghman, ganfan) ; premier contact pour le transfert de mercredi vers la frontière de Karkara (guesthouse, CBT ou agence locale — ça s'organise en un coup de fil).</span></li>
         <li class="food"><b>Manger</b><span>Midi : <strong>ashlan-fu</strong> au bazar. Soir : dîner dungan — et tout ce qui fait envie après 5 jours de trek.</span></li>
         <li class="maplink"><b>Carte</b><span><a href="https://www.wikiloc.com/hiking-trails/ak-suu-altyn-arashan-ushchele-arashan-7761322">tracé Wikiloc (17,8 km — sens descente)</a> · <a href="https://opentopomap.org/#map=13/42.4400/78.5700">topo zoomée</a></span></li>
       </ul>
@@ -692,7 +695,7 @@
     <div class="day">
       <div class="day-head"><span class="daynum">J21 · ven 25/9</span><h3>Almaty — la grande ville pour finir</h3><div class="chips"><span class="chip rest">Ville</span></div></div>
       <ul class="prog">
-        <li><b>Matin</b><span><strong>Cathédrale Zenkov</strong> (bois multicolore, parc Panfilov) puis <strong>Green Bazaar</strong> : fruits secs, miel, dernières emplettes (les noix d'Arslanbob achetées en route voyagent bien).</span></li>
+        <li><b>Matin</b><span><strong>Cathédrale Zenkov</strong> (bois multicolore, parc Panfilov) puis <strong>Green Bazaar</strong> : fruits secs, miel, dernières emplettes.</span></li>
         <li><b>Midi</b><span>Beshbarmak ou plov dans une tchaïkhana du centre.</span></li>
         <li><b>Après-midi</b><span>Téléphérique de <strong>Kok-Tobe</strong> pour la vue sur la ville et les Tian Shan, ou montée à <strong>Medeu/Shymbulak</strong> (la patinoire la plus haute du monde, télécabines vers 3 200 m) — au choix selon la fatigue.</span></li>
         <li><b>Soir</b><span>Le rituel final : les <strong>bains Arasan</strong>, monument soviétique du hammam-banya — trois semaines de voyage fondues dans la vapeur. Préparer les sacs pour l'envol.</span></li>
@@ -705,7 +708,7 @@
     <div class="day">
       <div class="day-head"><span class="daynum">J22 · sam 26/9</span><h3>Almaty → Paris</h3><div class="chips"><span class="chip fly">Vol</span></div></div>
       <ul class="prog">
-        <li><b>Matin</b><span>Taxi Yandex Go vers l'aéroport d'Almaty (ALA, ~30 min). Selon la compagnie retenue : Pegasus via Istanbul-SAW, Turkish via IST, ou Wizz Air via Abu Dhabi — l'offre est quotidienne, c'est tout l'intérêt de finir ici.</span></li>
+        <li><b>Matin</b><span>Taxi Yandex Go vers l'aéroport d'Almaty (ALA, ~30 min). Selon la compagnie retenue : Pegasus via Istanbul-SAW, Turkish via IST, Air Astana, ou Wizz Air via Abu Dhabi — l'offre est quotidienne, c'est tout l'intérêt de finir ici.</span></li>
         <li><b>Après-midi</b><span>Escale, puis arrivée à Paris dans la soirée du samedi 26 septembre.</span></li>
         <li class="food"><b>Manger</b><span>Provisions du Green Bazaar pour l'escale — kurut et fruits secs jusqu'au bout.</span></li>
         <li class="maplink"><b>Carte</b><span><a href="https://www.google.com/maps/search/?api=1&amp;query=Almaty+International+Airport">aéroport d'Almaty (ALA)</a></span></li>
@@ -718,63 +721,62 @@
   <h2>Variantes et fusibles</h2>
   <p class="h2sub">La traverse est une colonne vertébrale : voilà où elle plie sans casser.</p>
   <ul class="plain">
-    <li><strong>Frontière de Karkara fermée ?</strong> C'est le fusible n°1 (poste saisonnier, fermeture selon météo) : Karakol → Bichkek par la <strong>rive nord</strong> de l'Issyk-Kul (jamais parcourue — la traverse reste sans doublon) puis poste de <strong>Korday</strong> (ouvert toute l'année) → Almaty : une grosse journée de route. Le canyon de Charyn se rattrape en A/R depuis Almaty le J21.</li>
+    <li><strong>Frontière de Karkara fermée ?</strong> C'est le fusible n°1 (poste saisonnier, fermeture selon météo) : Karakol → Bichkek par la rive nord puis poste de <strong>Korday</strong> (ouvert toute l'année) → Almaty : une grosse journée de route. Le canyon de Charyn se rattrape en A/R depuis Almaty le J21.</li>
     <li><strong>Traversée trop engagée ?</strong> Si le col Telety fait peur ou que la météo tourne : depuis Kok-Jaiyk, taxi vers Karakol, puis la boucle classique <strong>Ak-Suu → Altyn Arashan → col Ala-Kul → vallée de Karakol</strong> (3 jours au lieu de 5) — deux jours gagnés, à réinvestir à Karakol ou aux Kolsai.</li>
     <li><strong>Neige précoce sur Ala-Kul ?</strong> Fin septembre, une chute de neige peut fermer le col un jour ou deux : le J18 (tampon Karakol) absorbe l'attente ; sinon, couper par la vallée de Karakol sans le col (la variante ci-dessus, prise en cours de route depuis le pont de la Telety).</li>
-    <li><strong>Permis Kel-Suu KO ?</strong> Charter raccourci à 2 jours : Kazarman → Tash Rabat → Naryn, sans la zone frontalière — et une journée de plus à Song-Kul ou Karakol.</li>
-    <li><strong>Un jour de rab ?</strong> La <strong>vallée de l'Alaï</strong> face au pic Lénine (Sary-Mogol, à 3–4 h au sud d'Och) — seule entorse aller-retour qui vaille, à caser en début de séjour en comprimant Arslanbob.</li>
-    <li><strong>Location de voiture</strong> : toujours déconseillée — la traverse finit dans un autre pays, aucune agence kirghize ne laisse passer la frontière avec restitution à Almaty.</li>
+    <li><strong>Permis Kel-Suu KO — ou envie d'alléger ?</strong> Sauter Kel-Suu (J9–J10 en partie) : le charter se réduit à Tash Rabat en 2 jours, et les journées gagnées financent un 4e jour à cheval à Song-Kul ou une nuit de plus aux Kolsai.</li>
+    <li><strong>Pas fan des Jeux ?</strong> J2 = canyon de <strong>Konorchek</strong> en passant (arrêt dans la gorge de Boom, 8–10 km de marche entre les cheminées de fées) puis direct Kochkor — une journée de marge apparaît en fin de parcours.</li>
+    <li><strong>Location de voiture</strong> : hors sujet — la traverse finit dans un autre pays, aucune agence kirghize ne laisse passer la frontière avec restitution à Almaty.</li>
   </ul>
 
   <!-- À TROIS -->
   <h2>Voyager à trois</h2>
   <p class="h2sub">Trois, c'est le format idéal pour cette traverse — voilà ce que ça change concrètement.</p>
   <ul class="plain">
-    <li><strong>Le charter 4x4 devient raisonnable</strong> : 3 jours de véhicule avec chauffeur (Kazarman → Kel-Suu → Tash Rabat → Naryn) ≈ 300–480 € mise à disposition comprise — soit 100–160 € par personne pour le segment le plus sauvage du pays.</li>
-    <li><strong>Taxi partagé = voiture privée</strong> : à trois, acheter la 4ᵉ place ne coûte qu'un quart de plus et vous donne le véhicule entier — départs quand vous voulez, arrêts photo compris. Idem côté kazakh pour le combo Kaindy-Charyn-Almaty.</li>
+    <li><strong>Le trek à cheval devient un petit groupe privé</strong> : 3 chevaux + cheval de bât + guide via CBT Kochkor, tarif de groupe (~45–60 €/pers/jour tout compris) — prévenir 24–48 h avant pour rassembler les montures.</li>
+    <li><strong>Le charter 4x4 reste raisonnable</strong> : 3 jours de véhicule avec chauffeur (Naryn ↔ Tash Rabat ↔ Kel-Suu) ≈ 300–450 € — soit 100–150 € par personne pour le segment le plus sauvage du pays.</li>
+    <li><strong>Taxi partagé = voiture privée</strong> : à trois, acheter la 4ᵉ place ne coûte qu'un quart de plus et vous donne le véhicule entier. Idem côté kazakh pour le combo Kaindy-Charyn-Almaty.</li>
     <li><strong>Tentes</strong> : une 2 places + une 1 place pour répartir le poids ; matériel commun réparti (un seul réchaud, une popote, un filtre).</li>
-    <li><strong>Yourtes et homestays</strong> : trois couchages ne posent jamais problème, mais prévenir le bureau CBT la veille (surtout Song-Kul et Arslanbob).</li>
-    <li><strong>En stop</strong> : trois sacs + trois personnes, c'est plus dur à embarquer — viser les pick-up et camions, ou se rabattre sur le taxi partagé.</li>
+    <li><strong>Yourtes et homestays</strong> : trois couchages ne posent jamais problème, mais prévenir le bureau CBT la veille (surtout Song-Kul).</li>
   </ul>
 
   <!-- NOURRITURE -->
   <h2>Manger en route</h2>
   <p class="h2sub">Chaque fiche jour a sa ligne « Manger » ; voilà la vue d'ensemble.</p>
   <ul class="plain">
-    <li><strong>Les plats à connaître</strong> : lagman (nouilles tirées sautées), manty (raviolis vapeur), plov (riz au mouton — sommet à Och, dès le premier jour), beshbarmak (le plat national, pâtes et viande), samsy (feuilletés au tandyr — sommet à Jalal-Abad), ashlan-fu (soupe froide, spécialité de Karakol), boorsok (beignets), kurut (billes de fromage sec — le snack de trek local). Repas en café : <strong>2–4 €</strong> ; restaurant : 5–8 € (un peu plus à Almaty).</li>
-    <li><strong>En trek</strong> : compter ~700 g/pers/jour — flocons d'avoine, pâtes/semoule, soupes en sachet, saucisson, kurut, pain lepioshka, fruits secs et chocolat, tous trouvables dans n'importe quel bazar. Trois ravitaillements à caler : <strong>Jalal-Abad J4</strong> (pique-niques du charter), <strong>Naryn J7</strong> (trek Song-Kul) et <strong>Kochkor J10</strong> (les 5 jours de traversée — compléments à Bokonbaevo J11).</li>
-    <li><strong>Chez l'habitant et en yourte</strong>, le dîner et le petit-déjeuner sont généralement inclus ou proposés (~2–4 €) — c'est presque toujours meilleur que le restaurant, et à volonté.</li>
-    <li><strong>L'hospitalité</strong> : on vous offrira thé, boorsok, kaymak et kymyz (lait de jument fermenté, pétillant et aigre) — goûter au moins une gorgée fait toujours plaisir.</li>
+    <li><strong>Les plats à connaître</strong> : lagman (nouilles tirées sautées), manty (raviolis vapeur), plov (riz au mouton), beshbarmak (le plat national, pâtes et viande), samsy (feuilletés au tandyr), ashlan-fu (soupe froide, spécialité de Karakol), boorsok (beignets), kurut (billes de fromage sec — le snack de trek local), poisson fumé de l'Issyk-Kul à Cholpon-Ata. Repas en café : <strong>2–4 €</strong> ; restaurant : 5–8 € (un peu plus à Almaty).</li>
+    <li><strong>En trek à pied</strong> : compter ~700 g/pers/jour — flocons d'avoine, pâtes/semoule, soupes en sachet, saucisson, kurut, pain lepioshka, fruits secs et chocolat. Deux ravitaillements à caler : <strong>Naryn J7</strong> (pique-niques du charter) et <strong>Naryn J10</strong> (les 5 jours de la traversée — compléments à Bokonbaevo J11).</li>
+    <li><strong>À cheval et en yourte</strong> (J4–J6, J8–J9) : pension complète — dîners et petits-déjeuners fournis, pique-niques par le guide. Seuls les snacks de selle sont à prévoir.</li>
+    <li><strong>L'hospitalité</strong> : on vous offrira thé, boorsok, kaymak et kymyz (lait de jument fermenté, pétillant et aigre) — goûter au moins une gorgée fait toujours plaisir, surtout à cheval chez les bergers de Song-Kul.</li>
     <li><strong>Végétarien ?</strong> Possible mais sportif : la cuisine est très carnée. Les homestays s'adaptent si on prévient la veille (via CBT) ; en café, viser lagman végétarien, salades, œufs.</li>
     <li><strong>Estomac</strong> : eau toujours filtrée/bouillie (thé = sûr), crudités prudence les premiers jours, et le kymyz peut surprendre les intestins — le tester un soir de ville plutôt qu'avant un col.</li>
   </ul>
 
   <!-- HYGIÈNE -->
   <h2>Se laver en route</h2>
-  <p class="h2sub">Sur cette traverse, jamais plus de trois nuits consécutives sans eau chaude — chaque fiche jour indique le point d'hygiène du soir.</p>
+  <p class="h2sub">Une seule vraie séquence « sans » sur toute la traverse — chaque fiche jour indique le point d'hygiène du soir.</p>
   <ul class="plain">
-    <li><strong>🚿 Douche chaude</strong> : quasi systématique en guesthouse et homestay (Och, Arslanbob, Kazarman, Naryn, Kochkor, Karakol, Saty, Almaty) — 13 nuits sur 21.</li>
+    <li><strong>🚿 Douche chaude</strong> : quasi systématique en guesthouse et homestay (Bichkek, Cholpon-Ata, Kochkor, Naryn ×2, Bokonbaevo, Karakol ×2, Saty, Almaty ×2) — 12 nuits sur 21.</li>
     <li><strong>♨️ Sources chaudes d'Altyn Arashan au soir du col Ala-Kul (J16)</strong> — ce sens de parcours les place en récompense, au meilleur moment du voyage.</li>
-    <li><strong>♨️ Banya</strong> : le bain de vapeur local (~100–200 som en banya publique à Naryn ; souvent gratuite chez l'habitant à Kazarman/Kochkor) — et en apothéose, les <strong>bains Arasan d'Almaty</strong> le dernier soir.</li>
-    <li><strong>🧼 Les nuits sans</strong> (Kök-Kyya, Tash Rabat, Song-Kul, Kilemche, Kok-Jaiyk, et J13–J15 sur la traversée) : toilette au torrent — savon biodégradable obligatoire, toujours <em>à distance</em> du cours d'eau (bergers et bêtes boivent en aval). Lingettes + gant pour les soirs de gel.</li>
-    <li><strong>🏊 L'Issyk-Kul</strong> ne gèle jamais : baignade encore agréable mi-septembre (~17–18 °C) — J11 au bivouac de plage.</li>
+    <li><strong>♨️ Banya</strong> : le bain de vapeur local (~100–200 som en banya publique à Naryn ; souvent gratuite chez l'habitant à Kochkor) — et en apothéose, les <strong>bains Arasan d'Almaty</strong> le dernier soir.</li>
+    <li><strong>🧼 La séquence sans eau chaude : J12–J15 (4 nuits de traversée)</strong>, soldée par les sources d'Arashan — toilette au torrent, savon biodégradable obligatoire, toujours <em>à distance</em> du cours d'eau (bergers et bêtes boivent en aval). Lingettes + gant pour les soirs de gel. Les yourtes de Song-Kul (J4–J6) et Tash Rabat/Kök-Kyya (J8–J9) sont au même régime, mais coupées par les douches de Naryn.</li>
+    <li><strong>🏊 L'Issyk-Kul</strong> ne gèle jamais : baignade encore agréable mi-septembre (~17–18 °C) — J11 à Bokonbaevo.</li>
   </ul>
 
   <!-- TRANSPORTS DÉTAIL -->
   <h2>Transports : les prix en détail</h2>
-  <p class="h2sub">Tous les segments de la traverse, chiffrés (1 € ≈ 100 som kirghiz ≈ 500 tenge kazakhs — ordres de grandeur à confirmer sur place). Les marshrutkas et taxis partagés se paient à la place ; les 4x4 au véhicule, à diviser par trois.</p>
+  <p class="h2sub">Tous les segments de la traverse, chiffrés (1 € ≈ 100 som kirghiz ≈ 500 tenge kazakhs — ordres de grandeur à confirmer sur place). Les marshrutkas et taxis partagés se paient à la place ; les 4x4 au véhicule, à diviser par trois. Le trek à cheval est compté à part (forfait par personne).</p>
   <div class="tablewrap">
     <table>
       <tr><th>Jour</th><th>Segment</th><th>Mode</th><th>Prix</th></tr>
-      <tr><td>J1</td><td>Aéroport d'Och → centre-ville</td><td>Taxi</td><td class="num">300–400 som /véhicule</td></tr>
-      <tr><td>J2</td><td>Och → Bazar-Korgon</td><td>Taxi partagé</td><td class="num">~300–400 som /pers</td></tr>
-      <tr><td>J2</td><td>Bazar-Korgon → Arslanbob</td><td>Marshrutka</td><td class="num">~60 som /pers</td></tr>
-      <tr><td>J4</td><td>Arslanbob → Jalal-Abad</td><td>Taxi partagé</td><td class="num">~200 som /pers</td></tr>
-      <tr><td>J4</td><td>Jalal-Abad → Kazarman (col Kaldamo)</td><td>Taxi partagé</td><td class="num">~800–1 200 som /pers</td></tr>
-      <tr><td>J5–J7</td><td>Charter 3 j : Kazarman → Kel-Suu → Tash Rabat → Naryn</td><td>4x4 + chauffeur (CBT Naryn)</td><td class="num">~30 000–48 000 som /véhicule*</td></tr>
-      <tr><td>J8</td><td>Naryn → Song-Kul (col Moldo-Ashuu)</td><td>4x4 via CBT</td><td class="num">~7 000–12 000 som /véhicule</td></tr>
-      <tr><td>J10</td><td>Kyzart → Kochkor</td><td>Marshrutka / taxi</td><td class="num">~150–250 som /pers</td></tr>
-      <tr><td>J11</td><td>Kochkor → Balykchy → Bokonbaevo</td><td>Marshrutka / taxi partagé</td><td class="num">~350–500 som /pers</td></tr>
+      <tr><td>J1</td><td>Aéroport Manas → centre de Bichkek</td><td>Taxi (Yandex Go)</td><td class="num">600–800 som /véhicule</td></tr>
+      <tr><td>J2</td><td>Bichkek → Cholpon-Ata (gorge de Boom)</td><td>Marshrutka</td><td class="num">~300–400 som /pers</td></tr>
+      <tr><td>J3</td><td>Cholpon-Ata → Balykchy → Kochkor</td><td>Marshrutka / taxi partagé</td><td class="num">~350–500 som /pers</td></tr>
+      <tr><td>J4</td><td>Kochkor → Kyzart (souvent inclus au forfait cheval)</td><td>Transfert CBT</td><td class="num">~150–250 som /pers</td></tr>
+      <tr><td>J4–J6</td><td><strong>Trek à cheval Song-Kul 3 j</strong> (chevaux, bât, guide, yourtes, pension)</td><td>À cheval (CBT Kochkor)</td><td class="num">~4 500–6 000 som /pers/jour</td></tr>
+      <tr><td>J7</td><td>Song-Kul → Naryn (col Moldo-Ashuu)</td><td>4x4 via CBT</td><td class="num">~7 000–12 000 som /véhicule</td></tr>
+      <tr><td>J8–J10</td><td>Charter 3 j : Naryn → Tash Rabat → Kel-Suu → Naryn</td><td>4x4 + chauffeur (CBT Naryn)</td><td class="num">~30 000–45 000 som /véhicule</td></tr>
+      <tr><td>J11</td><td>Naryn → col Dolon → Bokonbaevo</td><td>Taxi affrété</td><td class="num">~4 000–6 000 som /véhicule</td></tr>
       <tr><td>J12</td><td>Bokonbaevo → Skazka → Jeti-Oguz (arrêts compris)</td><td>Taxi négocié</td><td class="num">~2 000–2 500 som /véhicule</td></tr>
       <tr><td>J17</td><td>Ak-Suu → Karakol</td><td>Marshrutka n°350</td><td class="num">~35–50 som /pers</td></tr>
       <tr><td>J19</td><td>Karakol → frontière de Karkara</td><td>Taxi affrété</td><td class="num">~2 500–4 000 som /véhicule</td></tr>
@@ -782,54 +784,56 @@
       <tr><td>J20</td><td>Saty → Kaindy (option, A/R)</td><td>4x4 local</td><td class="num">~10 000 ₸ /véhicule</td></tr>
       <tr><td>J20</td><td>Saty → Charyn → Almaty</td><td>4x4/taxi affrété</td><td class="num">~30 000–45 000 ₸ /véhicule</td></tr>
       <tr><td>J22</td><td>Almaty → aéroport ALA</td><td>Taxi (Yandex Go)</td><td class="num">~2 000–3 000 ₸ /véhicule</td></tr>
-      <tr><td></td><td><strong>Total transport terrestre de la traverse</strong></td><td>4x4 divisés par 3</td><td class="num"><strong>≈ 200–290 € /pers</strong></td></tr>
+      <tr><td></td><td><strong>Total transport terrestre (hors trek à cheval)</strong></td><td>4x4 divisés par 3</td><td class="num"><strong>≈ 180–260 € /pers</strong></td></tr>
     </table>
   </div>
-  <p class="src">* Prise en charge à Kazarman : le véhicule descend de Naryn la veille — la mise à disposition (une demi-journée à une journée de route) s'ajoute au tarif journalier, à négocier dans le forfait avec CBT Naryn. C'est le prix de la traverse parfaite : aucun segment parcouru deux fois. <strong>Et la location de voiture ?</strong> Hors sujet ici : la traverse se termine au Kazakhstan, et aucune agence kirghize ne couvre un abandon de véhicule à Almaty.</p>
+  <p class="src"><strong>Et la location de voiture ?</strong> Hors sujet sur cette traverse : elle se termine au Kazakhstan, et aucune agence kirghize ne couvre un passage de frontière avec abandon du véhicule à Almaty. Le mix marshrutka + taxi + 4x4 ponctuels reste de toute façon 3 à 5 fois moins cher.</p>
 
   <!-- BUDGET -->
   <h2>Budget estimé (par personne)</h2>
   <div class="tablewrap">
     <table>
       <tr><th>Poste</th><th>Détail</th><th>Estimation</th></tr>
-      <tr><td>Vols internationaux</td><td>2 allers simples : Paris → Och du ven 4/9 (Pegasus via Istanbul-SAW) + Almaty → Paris du sam 26/9 (Pegasus, Turkish, Air Astana ou Wizz) — l'offre quotidienne d'Almaty tire les prix vers le bas</td><td class="num">450–650 €</td></tr>
+      <tr><td>Vols internationaux</td><td>2 allers simples : Paris → Bichkek du ven 4/9 au soir (Pegasus/Turkish/AJet, quotidien, arrivée à l'aube) + Almaty → Paris du sam 26/9 (offre quotidienne)</td><td class="num">400–600 €</td></tr>
       <tr><td>Vie sur place</td><td>~35–45 €/jour en routard (homestays 10–12 €, repas 3–8 €) × 22 jours — Almaty un cran plus cher</td><td class="num">770–990 €</td></tr>
-      <tr><td>Transports internes (KG)</td><td>Marshrutkas + taxis partagés cumulés</td><td class="num">60–90 €</td></tr>
-      <tr><td>Charter 4x4 3 jours</td><td>Kazarman → Kel-Suu → Tash Rabat → Naryn, véhicule + chauffeur + mise à disposition ÷ 3</td><td class="num">100–160 €</td></tr>
-      <tr><td>4x4 ponctuel</td><td>Naryn → Song-Kul (véhicule ÷ 3)</td><td class="num">25–40 €</td></tr>
+      <tr><td>Trek à cheval Song-Kul</td><td>3 jours : chevaux, cheval de bât, guide, yourtes en pension (CBT Kochkor)</td><td class="num">135–180 €</td></tr>
+      <tr><td>Charter 4x4 Kel-Suu</td><td>3 jours Naryn ↔ Tash Rabat ↔ Kel-Suu, véhicule + chauffeur ÷ 3</td><td class="num">100–150 €</td></tr>
+      <tr><td>4x4 et taxis affrétés</td><td>Song-Kul → Naryn, Naryn → Bokonbaevo (véhicules ÷ 3)</td><td class="num">40–65 €</td></tr>
+      <tr><td>Transports internes (KG)</td><td>Marshrutkas + taxis partagés cumulés</td><td class="num">40–60 €</td></tr>
       <tr><td>Transferts kazakhs</td><td>Karkara → Saty → Kaindy → Charyn → Almaty (véhicules ÷ 3, entrées des parcs comprises)</td><td class="num">40–70 €</td></tr>
       <tr><td>Permis frontalier Kel-Suu</td><td>Commande en ligne (Travel Land, Nomads Life…)</td><td class="num">30–40 €</td></tr>
-      <tr><td>Total sur place</td><td>par personne, hors vols internationaux</td><td class="num">≈ 1 000–1 400 €</td></tr>
+      <tr><td>Total sur place</td><td>par personne, hors vols internationaux</td><td class="num">≈ 1 100–1 500 €</td></tr>
     </table>
   </div>
 
   <!-- AVANT DE PARTIR -->
   <h2>À faire avant le départ</h2>
   <div class="notice warn">
-    <p><strong>Le montage administratif clef : permis Kel-Suu + remise des originaux au chauffeur.</strong> Commande en ligne au moins 14 jours avant le départ (~30–40 € chacun, délai ~7 jours ouvrés). Le checkpoint tombe dès le J5 : organiser <em>avant le départ</em>, avec l'agence du permis et CBT Naryn, la remise des originaux papier au chauffeur du charter — c'est lui qui les apporte à Kazarman.</p>
+    <p><strong>Le seul vrai impératif administratif : le permis de zone frontalière pour Kel-Suu.</strong> Commande en ligne au moins 14 jours avant le départ (~30–40 € chacun, délai ~7 jours ouvrés) ; l'original papier se récupère à Bichkek (J1) ou à Naryn (J7) et se présente avec le passeport au checkpoint — pour les trois voyageurs.</p>
   </div>
   <ul class="plain">
     <li><strong>Pas de visa</strong> pour les Français : Kirghizistan jusqu'à 60 jours, Kazakhstan jusqu'à 30 jours. Passeport valable 6 mois après le retour.</li>
-    <li><strong>Vols en 2 allers simples</strong> : Paris → Och du vendredi 4/9 (Pegasus via Istanbul-SAW — la rotation du vendredi soir est la seule qui arrive le samedi à l'aube) et Almaty → Paris du samedi 26/9 (choix quotidien). Réserver tôt : 3 places en pleine saison de trek.</li>
+    <li><strong>Vols en 2 allers simples</strong> : Paris → Bichkek du vendredi 4/9 au soir (arrivée samedi à l'aube — Pegasus, Turkish, AJet : l'offre est quotidienne) et Almaty → Paris du samedi 26/9 (idem). Réserver tôt : 3 places en pleine saison de trek.</li>
+    <li><strong>Assurance couvrant la randonnée en altitude, le rapatriement — et l'équitation</strong> (vérifier explicitement : trois jours de selle sont au programme).</li>
+    <li>Pré-contacter <strong>CBT Kochkor</strong> (trek à cheval du J4) et <strong>CBT Naryn</strong> (charter du J8) via cbtkyrgyzstan.kg ; réserver les nuits de Bichkek (J1) et surtout <strong>Cholpon-Ata (J2 — soir de finale des World Nomad Games)</strong>.</li>
     <li><strong>Vérifier l'ouverture de la frontière de Karkara</strong> (page Caravanistan des postes kazakhs) une semaine avant le départ — et repérer le plan B Korday.</li>
-    <li><strong>Assurance couvrant la randonnée en altitude et le rapatriement</strong> — indispensable, les secours en montagne sont quasi inexistants.</li>
-    <li>Pré-contacter <strong>CBT Naryn</strong> (cbtkyrgyzstan.kg) : charter 4x4 avec prise en charge à Kazarman le J5 + permis à bord + 4x4 Song-Kul du J8.</li>
-    <li>Télécharger <strong>Organic Maps</strong> (fonds hors-ligne Kirghizistan <em>et</em> Kazakhstan), 2GIS pour les villes, Yandex Go pour les taxis (marche à Och comme à Almaty).</li>
+    <li>Télécharger <strong>Organic Maps</strong> (fonds hors-ligne Kirghizistan <em>et</em> Kazakhstan), 2GIS pour les villes, Yandex Go pour les taxis (marche à Bichkek comme à Almaty), GoBus pour les bus de Bichkek.</li>
     <li>Consulter les Conseils aux voyageurs de France Diplomatie (Kirghizistan et Kazakhstan) avant le départ.</li>
   </ul>
 
   <h2>Équipement clé pour septembre</h2>
   <ul class="plain">
-    <li><strong>Duvet confort −10 °C</strong> : le grand trek tombe fin septembre — gel assuré dès 2 500 m, −5 à −10 °C au bivouac du lac Ala-Kul (3 532 m).</li>
+    <li><strong>Duvet confort −10 °C</strong> : le grand trek tombe fin septembre — gel assuré dès 2 500 m, −5 à −10 °C au bivouac du lac Ala-Kul (3 532 m) et à Kel-Suu.</li>
     <li>Tentes 3 saisons solides (une 2 places + une 1 place), matelas isolants (R ≥ 3), <strong>guêtres</strong> (neige fraîche possible sur les cols fin septembre).</li>
+    <li><strong>Pour le cheval</strong> : pantalon long confortable (pas de couture intérieure épaisse), gants fins ; casques rarement fournis — le demander au CBT à la réservation.</li>
     <li><strong>Filtre à eau + pastilles</strong> : aucune eau n'est potable telle quelle, y compris les torrents (bétail sur les pâturages).</li>
-    <li>Réchaud à cartouches vissées — <strong>stock complet du voyage à Och dès le J1</strong> (magasins d'expédition du pic Lénine, bazar Jayma) : rien entre Och et Karakol (J17). Plan B : EcoTrek à Karakol pour la fin du séjour.</li>
-    <li>Doudoune + bonnet/gants (cols et soirées), protection solaire forte, savon biodégradable + lingettes, cash réparti sur les trois (distributeurs : Och, Jalal-Abad, Naryn, Karakol — puis Kegen et Almaty en tenge).</li>
+    <li>Réchaud à cartouches vissées — cartouches chez <strong>TUK à Bichkek dès le J1</strong> (~450 som), recharge possible chez EcoTrek à Karakol (J17) : rien entre les deux.</li>
+    <li>Doudoune + bonnet/gants (cols et soirées), protection solaire forte, savon biodégradable + lingettes, cash réparti sur les trois (distributeurs : Bichkek, Karakol, Naryn — puis Kegen et Almaty en tenge).</li>
     <li>Jours plus courts (~12 h de lumière fin septembre) : frontales et départs matinaux, surtout pour les deux cols.</li>
   </ul>
 
   <h2>Sources principales</h2>
-  <p class="src">Conditions de treks : <a href="https://www.journalofnomads.com/ala-kul-trek/">Journal of Nomads</a>, <a href="https://againstthecompass.com/en/ala-kul-trek/">Against the Compass</a>, <a href="https://kgnomad.com/treks/ak-suu-traverse/">KG Nomad (traversée Ak-Suu)</a>, <a href="https://caravanistan.com/kyrgyzstan/center/song-kol/">Caravanistan</a>. Transports et logistique : <a href="https://destinationkarakol.com/plan-your-trip/transportation/">Destination Karakol</a>, <a href="https://cbtkyrgyzstan.kg/en/">CBT Kyrgyzstan</a>. Frontière de Karkara : <a href="https://caravanistan.com/border-crossings/kazakhstan/">Caravanistan – postes kazakhs</a>, <a href="https://adventuresoflilnicki.com/karkara-border-crossing-kazakhstan-kyrgyzstan/">Adventures of Lil Nicki</a>, <a href="https://awaywiththesteiners.com/kegen-border-crossing/">Away with the Steiners</a>. Formalités : <a href="https://www.diplomatie.gouv.fr/fr/information-par-pays/kirghizstan/conseils-aux-voyageurs-entree-sejour">France Diplomatie</a>, <a href="https://bp.trvlland.com/">permis frontalier en ligne</a>.</p>
+  <p class="src">Conditions de treks : <a href="https://www.journalofnomads.com/ala-kul-trek/">Journal of Nomads</a>, <a href="https://againstthecompass.com/en/ala-kul-trek/">Against the Compass</a>, <a href="https://kgnomad.com/treks/ak-suu-traverse/">KG Nomad (traversée Ak-Suu)</a>, <a href="https://caravanistan.com/kyrgyzstan/center/song-kol/">Caravanistan – Song-Kul</a>. Trek à cheval et logistique : <a href="https://cbtkyrgyzstan.kg/en/">CBT Kyrgyzstan</a>, <a href="https://www.discoverkyrgyzstan.org/song-kul-lake-yurt-camps-horse-treks-routes-and-when-to-go/">Discover Kyrgyzstan – Song-Kul</a>, <a href="https://destinationkarakol.com/plan-your-trip/transportation/">Destination Karakol</a>. Frontière de Karkara : <a href="https://caravanistan.com/border-crossings/kazakhstan/">Caravanistan – postes kazakhs</a>, <a href="https://adventuresoflilnicki.com/karkara-border-crossing-kazakhstan-kyrgyzstan/">Adventures of Lil Nicki</a>, <a href="https://awaywiththesteiners.com/kegen-border-crossing/">Away with the Steiners</a>. Formalités et événements : <a href="https://www.diplomatie.gouv.fr/fr/information-par-pays/kirghizstan/conseils-aux-voyageurs-entree-sejour">France Diplomatie</a>, <a href="https://bp.trvlland.com/">permis frontalier en ligne</a>, <a href="https://timesca.com/kyrgyzstan-announces-dates-for-world-nomad-games-2026/">World Nomad Games 2026</a>.</p>
 </div>
 </body>
 </html>
